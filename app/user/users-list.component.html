@@ -1,0 +1,20 @@
+<h1>Пользователи</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span>&nbsp;</span>
+                <a href="" [routerLink]="['UserAdd']" class="btn btn-primary btn-xs pull-right">Добавить автора</a>
+            </li>
+            <li *ngFor="let user of users" class="list-group-item">
+              <a>{{user.userName}} | {{user.value}}
+                 </a>             
+            </li>
+            <li class="list-group-item">
+                <span>&nbsp;</span>
+                <a href="" [routerLink]="['UserAdd']" class="btn btn-primary btn-xs pull-right">Добавить автора</a>
+            </li>
+        </ul>
+    </div>
+</div>

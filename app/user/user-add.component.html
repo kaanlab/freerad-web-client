@@ -1,0 +1,75 @@
+<div class="container">
+  <h1>Новый пользователь</h1>
+    <div [hidden]="submitted">
+       <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #userAdd="ngForm">
+           <div class="form-group">
+               <label for="username" class="col-sm-2 control-label">Имя пользователя</label>
+               <div class="col-sm-10">
+                   <input id="userName" class="form-control" ngControl="userName" [(ngModel)]="user.userName" #userName="ngForm" required minlength="3" maxlength="64" placeholder="Jon">             
+               </div>
+           </div>
+           <div class="form-group">
+               <label for="attribute" class="col-sm-2 control-label">Атрибут</label>
+               <div class="col-sm-10">
+                   <input id="attribute" class="form-control" ngControl="attribute" [(ngModel)]="user.attribute" #attribute="ngForm" required minlength="5" maxlength="64" placeholder="Cleartext-Password">
+               </div>
+           </div>
+           <div class="form-group">
+               <label for="op" class="col-sm-2 control-label">ОП</label>
+               <div class="col-sm-10">
+                   <input id="op" class="form-control" ngControl="op" [(ngModel)]="user.op" required minlength="1" maxlength="2" placeholder=":=">
+               </div>
+           </div>
+           <div class="form-group">
+               <label for="value" class="col-sm-2 control-label">Значение</label>
+               <div class="col-sm-10">
+                   <input id="value" class="form-control" ngControl="value" [(ngModel)]="user.value" required minlength="6" maxlength="253" placeholder="mypassword">
+               </div>
+           </div>  
+           <div class="form-group">
+               <div class="col-sm-offset-2 col-sm-10">
+                   <span><button type="submit" class="btn btn-default" data-toggle="modal" data-target="#submitUserModal" [disabled]="!userAdd.form.valid">Сохранить</button></span>
+                   <span><button class="btn btn-default" (click)="goBack()">Назад</button></span>
+               </div>
+           </div>
+       </form>
+    </div>
+</div>
+
+<div [hidden]="!submitted">
+   <div class="modal fade" id="submitUserModal" tabindex="-1" role="dialog" aria-labelledby="submitUserModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" (click)="submitted=false" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="submitUserModalLabel">Подтвердите ввод следующих даннных:</h4>
+            </div>
+            <div class="modal-body">    
+            <div class="row">
+                <div class="col-xs-3">Имя</div>
+                <div class="col-xs-9  pull-left">{{ user.userName }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">Атрибут</div>
+                <div class="col-xs-9 pull-left">{{ user.attribute }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">ОП</div>
+                <div class="col-xs-9 pull-left">{{ user.op }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">Значение</div>
+                <div class="col-xs-9 pull-left">{{ user.value }}</div>
+            </div>
+            </div>  
+            <div class="modal-footer">
+                <button class="btn btn-default" (click)="submitted=false" data-dismiss="modal">Редактрировать</button>
+                <button type="button" class="btn btn-default" (click)="clearForm()" data-dismiss="modal">Очистить</button>
+                <button type="button" class="btn btn-primary" (click)="onSave()" data-dismiss="modal">Cохранить</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
