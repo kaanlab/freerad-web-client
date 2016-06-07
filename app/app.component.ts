@@ -8,7 +8,7 @@ import { UsersComponent } from './user/users.component';
     selector: 'my-app',
     templateUrl: 'app/app.component.html',
     directives: [ROUTER_DIRECTIVES],
-    providers: [ROUTER_PROVIDERS] 
+    providers: [ROUTER_PROVIDERS]     
 })
 
 @RouteConfig([

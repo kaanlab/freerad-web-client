@@ -3,7 +3,7 @@
     <div [hidden]="submitted">
        <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #userAdd="ngForm">
            <div class="form-group">
-               <label for="username" class="col-sm-2 control-label">Имя пользователя</label>
+               <label for="userName" class="col-sm-2 control-label">Имя пользователя</label>
                <div class="col-sm-10">
                    <input id="userName" class="form-control" ngControl="userName" [(ngModel)]="user.userName" #userName="ngForm" required minlength="3" maxlength="64" placeholder="Jon">             
                </div>
@@ -28,7 +28,7 @@
            </div>  
            <div class="form-group">
                <div class="col-sm-offset-2 col-sm-10">
-                   <span><button type="submit" class="btn btn-default" data-toggle="modal" data-target="#submitUserModal" [disabled]="!userAdd.form.valid">Сохранить</button></span>
+                   <span><button type="submit" class="btn btn-default"  [disabled]="!userAdd.form.valid">Сохранить</button></span>
                    <span><button class="btn btn-default" (click)="goBack()">Назад</button></span>
                </div>
            </div>
@@ -37,14 +37,7 @@
 </div>
 
 <div [hidden]="!submitted">
-   <div class="modal fade" id="submitUserModal" tabindex="-1" role="dialog" aria-labelledby="submitUserModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" (click)="submitted=false" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="submitUserModalLabel">Подтвердите ввод следующих даннных:</h4>
-            </div>
-            <div class="modal-body">    
+    
             <div class="row">
                 <div class="col-xs-3">Имя</div>
                 <div class="col-xs-9  pull-left">{{ user.userName }}</div>
@@ -61,15 +54,14 @@
                 <div class="col-xs-3">Значение</div>
                 <div class="col-xs-9 pull-left">{{ user.value }}</div>
             </div>
-            </div>  
-            <div class="modal-footer">
-                <button class="btn btn-default" (click)="submitted=false" data-dismiss="modal">Редактрировать</button>
-                <button type="button" class="btn btn-default" (click)="clearForm()" data-dismiss="modal">Очистить</button>
-                <button type="button" class="btn btn-primary" (click)="onSave()" data-dismiss="modal">Cохранить</button>
-            </div>
+           
+            
+                <button class="btn btn-default" (click)="submitted=false">Редактрировать</button>
+                <button type="button" class="btn btn-default" (click)="clearForm()">Очистить</button>
+                <button type="button" class="btn btn-primary" (click)="onSave()">Cохранить</button>
+            
         </div>
-    </div>
-  </div>
-</div>
+ 
+
 
 

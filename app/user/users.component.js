@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var users_list_component_1 = require('./users-list.component');
+var user_detail_component_1 = require('./user-detail.component');
 var user_add_component_1 = require('./user-add.component');
 var UsersComponent = (function () {
     function UsersComponent() {
@@ -23,6 +24,7 @@ var UsersComponent = (function () {
         }),
         router_deprecated_1.RouteConfig([
             { path: '/', name: 'UsersList', component: users_list_component_1.UsersListComponent, useAsDefault: true },
+            { path: '/:id', name: 'UserDetail', component: user_detail_component_1.UserDetailComponent },
             { path: '/add', name: 'UserAdd', component: user_add_component_1.UserAddComponent }
         ]), 
         __metadata('design:paramtypes', [])

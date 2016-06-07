@@ -10,27 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var user_1 = require('./user');
 var user_service_1 = require('./user.service');
-var UsersListComponent = (function () {
-    function UsersListComponent(userService) {
+var UserDetailComponent = (function () {
+    function UserDetailComponent(userService, routeParams, router) {
         this.userService = userService;
+        this.routeParams = routeParams;
+        this.router = router;
+        this.user = new user_1.User();
     }
-    UsersListComponent.prototype.ngOnInit = function () {
+    UserDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.userService.getUsers()
-            .then(function (users) { return _this.users = users; })
-            .catch(function (error) { return _this.errorMessage = error; });
+        var id = +this.routeParams.get('id');
+        this.userService.getUser(id).then(function (user) { return _this.user = user; });
     };
-    UsersListComponent = __decorate([
+    UserDetailComponent = __decorate([
         core_1.Component({
-            selector: 'users-list',
-            templateUrl: 'app/user/users-list.component.html',
+            selector: 'user-detail',
+            templateUrl: 'app/user/user-detail.component.html',
             directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
-    ], UsersListComponent);
-    return UsersListComponent;
+        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+    ], UserDetailComponent);
+    return UserDetailComponent;
 }());
-exports.UsersListComponent = UsersListComponent;
-//# sourceMappingURL=users-list.component.js.map
+exports.UserDetailComponent = UserDetailComponent;
+//# sourceMappingURL=user-detail.component.js.map

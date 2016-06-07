@@ -28,12 +28,10 @@ var UserAddComponent = (function () {
     };
     UserAddComponent.prototype.onSave = function () {
         var _this = this;
-        this.userService.addAuthor(this.user).subscribe(function () { }, function (error) {
-            _this.errorMessage = error;
-            console.error(error);
-        });
         this.submitted = true;
-        this.navigateBack();
+        this.userService.addUser(this.user)
+            .then(function () { return _this.goBack(); })
+            .catch(function (error) { return _this.errorMessage = error; });
     };
     UserAddComponent.prototype.clearForm = function () {
         var _this = this;
@@ -51,6 +49,7 @@ var UserAddComponent = (function () {
         core_1.Component({
             selector: 'user-add',
             templateUrl: 'app/user/user-add.component.html',
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [user_service_1.UserService]
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router])
