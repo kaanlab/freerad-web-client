@@ -1,52 +1,29 @@
 
  <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Пользователи</h1>
+        <h1 class="page-header">Список пользователей</h1>
     </div>
     <!-- /.col-lg-12 -->
-<!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Пользователи системы
-                            <span>&nbsp;</span>
-                            <a href="" [routerLink]="['UserAdd']" class="btn btn-primary btn-xs pull-right">Добавить пользователя</a>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="dataTable_wrapper">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Имя пользователя</th>                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody >
-                                        <tr *ngFor="let user of users">
-                                            <td  >{{user.name}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                      </div>
-                </div>
-          </div>
-      </div>
- </div>
-    <div class="col-md-12">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <span>&nbsp;</span>
-                <a href="" [routerLink]="['UserAdd']" class="btn btn-primary btn-xs pull-right">Добавить автора</a>
-            </li>
-            <li *ngFor="let user of users" class="list-group-item">
-              <a>{{user.userName}} | {{user.value}}
-                 </a>             
-            </li>
-            <li class="list-group-item">
-                <span>&nbsp;</span>
-                <a href="" [routerLink]="['UserAdd']" class="btn btn-primary btn-xs pull-right">Добавить автора</a>
-            </li>
-        </ul>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">                    
+                     <span>&nbsp;</span>
+                     <button class="btn btn-default" (click)="goToNewUser()"><i class="fa fa-user-plus fa-lg"></i></button>                     
+                 </div>
+                 <!-- /.panel-heading -->
+                 <div class="panel-body">
+                      <ul class="list-group">
+                         <a href="" [routerLink]="['UserDetail', {id: user.id}]" *ngFor="let user of users; let i=index" class="list-group-item" (click)="onSelect(user)"  [class.selected]="user === selectedUser">
+                             <span class="user-element">
+                                 <span class="badge pull-left">{{ i + 1 }}</span>
+                                 {{user.userName}}
+                             </span>                                                                                                                   
+                         </a>
+                      </ul>
+                 </div>
+             </div>
+         </div>
     </div>
 </div>

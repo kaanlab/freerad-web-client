@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var common_1 = require('@angular/common');
 var user_1 = require('./user');
 var user_service_1 = require('./user.service');
 var UserAddComponent = (function () {
@@ -49,7 +50,10 @@ var UserAddComponent = (function () {
         core_1.Component({
             selector: 'user-add',
             templateUrl: 'app/user/user-add.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [
+                router_deprecated_1.ROUTER_DIRECTIVES,
+                common_1.NgClass
+            ],
             providers: [user_service_1.UserService]
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router])

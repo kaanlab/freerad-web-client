@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm } from '@angular/common';
+import { NgForm, NgClass } from '@angular/common';
 
 import { User } from './user';
 import { UserService } from './user.service';
@@ -8,7 +8,10 @@ import { UserService } from './user.service';
 @Component({
     selector: 'user-add',
     templateUrl: 'app/user/user-add.component.html',
-    directives: [ROUTER_DIRECTIVES],
+    directives: [
+        ROUTER_DIRECTIVES,
+        NgClass
+    ],
     providers: [ UserService]   
 })
 

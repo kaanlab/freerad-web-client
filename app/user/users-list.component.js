@@ -12,7 +12,8 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var user_service_1 = require('./user.service');
 var UsersListComponent = (function () {
-    function UsersListComponent(userService) {
+    function UsersListComponent(router, userService) {
+        this.router = router;
         this.userService = userService;
     }
     UsersListComponent.prototype.ngOnInit = function () {
@@ -21,6 +22,15 @@ var UsersListComponent = (function () {
             .then(function (users) { return _this.users = users; })
             .catch(function (error) { return _this.errorMessage = error; });
     };
+    UsersListComponent.prototype.goToNewUser = function () {
+        this.navigateToNewUser();
+    };
+    UsersListComponent.prototype.onSelect = function (user) {
+        this.selectedUser = user;
+    };
+    UsersListComponent.prototype.navigateToNewUser = function () {
+        this.router.navigate(['UserAdd']);
+    };
     UsersListComponent = __decorate([
         core_1.Component({
             selector: 'users-list',
@@ -28,7 +38,7 @@ var UsersListComponent = (function () {
             directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, user_service_1.UserService])
     ], UsersListComponent);
     return UsersListComponent;
 }());
