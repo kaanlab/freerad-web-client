@@ -9,10 +9,10 @@ import { User } from './user';
 
 export class UserService {
     
+    private apiUrl:string = 'http://localhost:51164/api/users/';
+    
     constructor(private http: Http){ }
-    
-    private apiUrl = 'http://localhost:51164/api/users/';
-    
+        
     // Get all authors
     getUsers(): Promise<User[]> {
         return this.http.get(this.apiUrl)
@@ -27,12 +27,6 @@ export class UserService {
             
     }
     
-    getUserBy(userName: string) {
-        return this.getUsers()
-            .then(users => users.find(user => user.userName == userName));
-            
-    }
-
     addUser(user: User) {
         let body = JSON.stringify(user);
         let headers = new Headers();
@@ -45,7 +39,18 @@ export class UserService {
                         .catch(this.handleError);
         
     }
-      
+
+    deleteUser(user: User) {
+        let body = JSON.stringify(user);
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let url = `${this.apiUrl}${user.id}`;
+
+        return this.http.delete(url, { headers: headers, body: body })
+                        .toPromise()
+                        .catch(this.handleError);
+    }
+
     // Handle errors
     private handleError(error: any) {
         console.error('Error:', error); // log to console instead

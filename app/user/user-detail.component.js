@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var common_1 = require('@angular/common');
 var user_1 = require('./user');
 var user_service_1 = require('./user.service');
 var UserDetailComponent = (function () {
@@ -17,6 +18,7 @@ var UserDetailComponent = (function () {
         this.userService = userService;
         this.routeParams = routeParams;
         this.router = router;
+        this.confirmDelete = false;
         this.user = new user_1.User();
     }
     UserDetailComponent.prototype.ngOnInit = function () {
@@ -24,11 +26,26 @@ var UserDetailComponent = (function () {
         var id = +this.routeParams.get('id');
         this.userService.getUser(id).then(function (user) { return _this.user = user; });
     };
+    UserDetailComponent.prototype.onDelete = function () {
+        var _this = this;
+        this.userService.deleteUser(this.user)
+            .then(function () { return _this.goBack(); })
+            .catch(function (error) { return _this.errorMessage = error; });
+    };
+    UserDetailComponent.prototype.goBack = function () {
+        this.navigateBack();
+    };
+    UserDetailComponent.prototype.navigateBack = function () {
+        this.router.navigate(['UsersList']);
+    };
     UserDetailComponent = __decorate([
         core_1.Component({
             selector: 'user-detail',
             templateUrl: 'app/user/user-detail.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [
+                router_deprecated_1.ROUTER_DIRECTIVES,
+                common_1.NgClass
+            ],
             providers: [user_service_1.UserService]
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, router_deprecated_1.Router])

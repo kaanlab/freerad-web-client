@@ -14,12 +14,13 @@
                  </div>
                  <!-- /.panel-heading -->
                  <div class="panel-body">
+                      <div class="col-sm-offset-4 col-sm-10" [hidden]="!loading">
+                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            <span class="sr-only">Loading...</span>
+                      </div>
                       <ul class="list-group">
                          <a href="" [routerLink]="['UserDetail', {id: user.id}]" *ngFor="let user of users; let i=index" class="list-group-item" (click)="onSelect(user)"  [class.selected]="user === selectedUser">
-                             <span class="user-element">
-                                 <span class="badge pull-left">{{ i + 1 }}</span>
-                                 {{user.userName}}
-                             </span>                                                                                                                   
+                            {{ i + 1 }} - {{user.userName}}
                          </a>
                       </ul>
                  </div>

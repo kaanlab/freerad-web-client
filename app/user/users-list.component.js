@@ -15,11 +15,12 @@ var UsersListComponent = (function () {
     function UsersListComponent(router, userService) {
         this.router = router;
         this.userService = userService;
+        this.loading = true;
     }
     UsersListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userService.getUsers()
-            .then(function (users) { return _this.users = users; })
+            .then(function (users) { return _this.users = users; }).then(function (loading) { return _this.loading = false; })
             .catch(function (error) { return _this.errorMessage = error; });
     };
     UsersListComponent.prototype.goToNewUser = function () {

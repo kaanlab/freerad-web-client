@@ -12,18 +12,20 @@ import { UserService } from './user.service';
 })
 
 export class UsersListComponent implements OnInit {
-
+    
+    private loading:boolean = true;
+    
+    users: User[];
+    selectedUser: User;
+    errorMessage: any;
+    
     constructor(
         private router: Router,
         private userService: UserService) { }
 
-    users: User[];
-    selectedUser: User;
-    errorMessage: any;
-
     ngOnInit() {
         this.userService.getUsers()
-            .then(users => this.users = users)
+            .then(users => this.users = users).then(loading => this.loading = false)
             .catch(error => this.errorMessage = error);
     }
 

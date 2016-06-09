@@ -27,10 +27,6 @@ var UserService = (function () {
         return this.getUsers()
             .then(function (users) { return users.find(function (user) { return user.id == id; }); });
     };
-    UserService.prototype.getUserBy = function (userName) {
-        return this.getUsers()
-            .then(function (users) { return users.find(function (user) { return user.userName == userName; }); });
-    };
     UserService.prototype.addUser = function (user) {
         var body = JSON.stringify(user);
         var headers = new http_1.Headers();
@@ -39,6 +35,15 @@ var UserService = (function () {
         return this.http.post(this.apiUrl, body, options)
             .toPromise()
             .then(function () { return user; })
+            .catch(this.handleError);
+    };
+    UserService.prototype.deleteUser = function (user) {
+        var body = JSON.stringify(user);
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        var url = "" + this.apiUrl + user.id;
+        return this.http.delete(url, { headers: headers, body: body })
+            .toPromise()
             .catch(this.handleError);
     };
     // Handle errors

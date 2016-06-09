@@ -12,17 +12,17 @@ import { UserService } from './user.service';
         ROUTER_DIRECTIVES,
         NgClass
     ],
-    providers: [ UserService]   
+    providers: [ UserService ]   
 })
 
 export class UserAddComponent implements OnInit {
     
-    private editMode = 'create';
-    private submitted = false;
+    private editMode:string = 'create';
+    private submitted:boolean = false;
     
     user: User;
     errorMessage: any;
-    active = true;   
+    active:boolean = true;   
 
     constructor(        
         private userService: UserService,
