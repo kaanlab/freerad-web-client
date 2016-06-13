@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouteParams, Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { NgForm, NgClass } from '@angular/common';
 
+import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
+
 import { User } from './user';
 import { UserService } from './user.service';
 
@@ -10,7 +12,8 @@ import { UserService } from './user.service';
     templateUrl: 'app/user/user-detail.component.html',    
     directives: [ 
         ROUTER_DIRECTIVES,
-        NgClass
+        NgClass,
+        Toasty
     ],
     providers: [ UserService ]  
 })
@@ -25,6 +28,7 @@ export class UserDetailComponent implements OnInit {
     constructor(
         private userService: UserService,
         private routeParams: RouteParams,
+        private toastyService: ToastyService,
         private router: Router) { }
 
     ngOnInit() {
@@ -34,6 +38,14 @@ export class UserDetailComponent implements OnInit {
 
     onDelete() {
         this.userService.deleteUser(this.user)
+                        .then(() => this.toastyService
+                                        .error({
+                                          title: "Сообщение:",
+                                          msg: this.getMessage(),
+                                          showClose: true,
+                                          timeout: 9000,
+                                          theme: "bootstrap"
+                                        }))
                         .then(() => this.goBack())
                         .catch(error => this.errorMessage = error);
     }
@@ -44,5 +56,9 @@ export class UserDetailComponent implements OnInit {
 
     private navigateBack(){
         this.router.navigate(['UsersList']);
+    }
+
+        private getMessage(): string {
+        return 'Пользователь ' + this.user.userName + ' удален!';
     }    
 }

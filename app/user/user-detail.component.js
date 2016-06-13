@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var common_1 = require('@angular/common');
+var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var user_1 = require('./user');
 var user_service_1 = require('./user.service');
 var UserDetailComponent = (function () {
-    function UserDetailComponent(userService, routeParams, router) {
+    function UserDetailComponent(userService, routeParams, toastyService, router) {
         this.userService = userService;
         this.routeParams = routeParams;
+        this.toastyService = toastyService;
         this.router = router;
         this.confirmDelete = false;
         this.user = new user_1.User();
@@ -29,6 +31,14 @@ var UserDetailComponent = (function () {
     UserDetailComponent.prototype.onDelete = function () {
         var _this = this;
         this.userService.deleteUser(this.user)
+            .then(function () { return _this.toastyService
+            .error({
+            title: "Сообщение:",
+            msg: _this.getMessage(),
+            showClose: true,
+            timeout: 9000,
+            theme: "bootstrap"
+        }); })
             .then(function () { return _this.goBack(); })
             .catch(function (error) { return _this.errorMessage = error; });
     };
@@ -38,17 +48,21 @@ var UserDetailComponent = (function () {
     UserDetailComponent.prototype.navigateBack = function () {
         this.router.navigate(['UsersList']);
     };
+    UserDetailComponent.prototype.getMessage = function () {
+        return 'Пользователь ' + this.user.userName + ' удален!';
+    };
     UserDetailComponent = __decorate([
         core_1.Component({
             selector: 'user-detail',
             templateUrl: 'app/user/user-detail.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
-                common_1.NgClass
+                common_1.NgClass,
+                ng2_toasty_1.Toasty
             ],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
     ], UserDetailComponent);
     return UserDetailComponent;
 }());

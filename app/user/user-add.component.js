@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var common_1 = require('@angular/common');
+var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var user_1 = require('./user');
 var user_service_1 = require('./user.service');
 var UserAddComponent = (function () {
-    function UserAddComponent(userService, router) {
+    function UserAddComponent(userService, router, toastyService) {
         this.userService = userService;
         this.router = router;
+        this.toastyService = toastyService;
         this.editMode = 'create';
         this.submitted = false;
         this.active = true;
@@ -31,6 +33,14 @@ var UserAddComponent = (function () {
         var _this = this;
         this.submitted = true;
         this.userService.addUser(this.user)
+            .then(function () { return _this.toastyService
+            .success({
+            title: "Сообщение:",
+            msg: _this.getMessage(),
+            showClose: true,
+            timeout: 9000,
+            theme: "bootstrap"
+        }); })
             .then(function () { return _this.goBack(); })
             .catch(function (error) { return _this.errorMessage = error; });
     };
@@ -46,17 +56,21 @@ var UserAddComponent = (function () {
     UserAddComponent.prototype.navigateBack = function () {
         this.router.navigate(['UsersList']);
     };
+    UserAddComponent.prototype.getMessage = function () {
+        return 'Пользователь ' + this.user.userName + ' сохранен!';
+    };
     UserAddComponent = __decorate([
         core_1.Component({
             selector: 'user-add',
             templateUrl: 'app/user/user-add.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
-                common_1.NgClass
+                common_1.NgClass,
+                ng2_toasty_1.Toasty
             ],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router, ng2_toasty_1.ToastyService])
     ], UserAddComponent);
     return UserAddComponent;
 }());

@@ -4,6 +4,7 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
 import { User } from './user';
 import { UserService } from './user.service';
 
+
 @Component({
     selector: 'users-list',
     templateUrl: 'app/user/users-list.component.html',
@@ -21,7 +22,8 @@ export class UsersListComponent implements OnInit {
     
     constructor(
         private router: Router,
-        private userService: UserService) { }
+        private userService: UserService       
+        ) { }
 
     ngOnInit() {
         this.userService.getUsers()

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { NgForm, NgClass } from '@angular/common';
+
+import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
 
 import { User } from './user';
 import { UserService } from './user.service';
@@ -10,7 +12,8 @@ import { UserService } from './user.service';
     templateUrl: 'app/user/user-add.component.html',
     directives: [
         ROUTER_DIRECTIVES,
-        NgClass
+        NgClass,
+        Toasty        
     ],
     providers: [ UserService ]   
 })
@@ -26,7 +29,8 @@ export class UserAddComponent implements OnInit {
 
     constructor(        
         private userService: UserService,
-        private router: Router
+        private router: Router,
+        private toastyService: ToastyService
         ) { }
     
     ngOnInit() {
@@ -40,7 +44,15 @@ export class UserAddComponent implements OnInit {
     onSave(){        
         this.submitted = true;
         this.userService.addUser(this.user)
-                        .then(() => this.goBack())
+                        .then(() => this.toastyService
+                                        .success({
+                                          title: "Сообщение:",
+                                          msg: this.getMessage(),
+                                          showClose: true,
+                                          timeout: 9000,
+                                          theme: "bootstrap"
+                                        }))
+                        .then(() => this.goBack())                        
                         .catch(error => this.errorMessage = error);
     }
     
@@ -56,5 +68,9 @@ export class UserAddComponent implements OnInit {
 
     private navigateBack(){
         this.router.navigate(['UsersList']);
+    }
+
+    private getMessage(): string {
+        return 'Пользователь ' + this.user.userName + ' сохранен!';
     }
 }
