@@ -4,40 +4,40 @@ import { NgForm, NgClass } from '@angular/common';
 
 import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
 
-import { User } from './user';
-import { UserService } from './user.service';
+import { Group } from './group';
+import { GroupService } from './group.service';
 
 @Component({
-    selector: 'user-detail',
-    templateUrl: 'app/user/user-detail.component.html',    
+    selector: 'group-detail',
+    templateUrl: 'app/group/group-detail.component.html',    
     directives: [ 
         ROUTER_DIRECTIVES,
         NgClass,
         Toasty
     ],
-    providers: [ UserService ]  
+    providers: [ GroupService ]  
 })
 
-export class UserDetailComponent implements OnInit {
+export class GroupDetailComponent implements OnInit {
     
     private confirmDelete:boolean = false;
 
-    user: User = new User();
+    group: Group = new Group();
     errorMessage: any
 
     constructor(
-        private userService: UserService,
+        private groupService: GroupService,
         private routeParams: RouteParams,
         private toastyService: ToastyService,
         private router: Router) { }
 
     ngOnInit() {
         let id = +this.routeParams.get('id');
-        this.userService.getUser(id).then(user => this.user = user);        
+        this.groupService.getGroup(id).then(group => this.group = group);        
     }
 
     onDelete() {
-        this.userService.deleteUser(this.user)
+        this.groupService.deleteGroup(this.group)
                         .then(() => this.toastyService
                                         .error({
                                             title: "Сообщение:",
@@ -56,14 +56,14 @@ export class UserDetailComponent implements OnInit {
 
     onEdit(){
         let id = +this.routeParams.get('id');
-        this.router.navigate(['UserEdit', { id: id}]);
+        this.router.navigate(['GroupEdit', { id: id}]);
     }
 
     private navigateBack(){
-        this.router.navigate(['UsersList']);
+        this.router.navigate(['GroupsList']);
     }
 
     private getMessage(): string {
-        return 'Пользователь ' + this.user.userName + ' удален!';
+        return 'Группа ' + this.group.groupName + ' удалена!';
     }    
 }

@@ -11,16 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
-var users_list_component_1 = require('./users-list.component');
-var user_detail_component_1 = require('./user-detail.component');
-var user_add_component_1 = require('./user-add.component');
-var user_edit_component_1 = require('./user-edit.component');
-var UsersComponent = (function () {
-    function UsersComponent() {
+var groups_list_component_1 = require('./groups-list.component');
+var group_detail_component_1 = require('./group-detail.component');
+var group_add_component_1 = require('./group-add.component');
+var group_edit_component_1 = require('./group-edit.component');
+var GroupsComponent = (function () {
+    function GroupsComponent() {
     }
-    UsersComponent = __decorate([
+    GroupsComponent = __decorate([
         core_1.Component({
-            selector: 'users',
+            selector: 'groups',
             template: "\n            <router-outlet></router-outlet>\n            <ng2-toasty></ng2-toasty>\n    ",
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
@@ -28,14 +28,14 @@ var UsersComponent = (function () {
             ]
         }),
         router_deprecated_1.RouteConfig([
-            { path: '/', name: 'UsersList', component: users_list_component_1.UsersListComponent, useAsDefault: true },
-            { path: '/:id', name: 'UserDetail', component: user_detail_component_1.UserDetailComponent },
-            { path: '/add', name: 'UserAdd', component: user_add_component_1.UserAddComponent },
-            { path: '/edit/:id', name: 'UserEdit', component: user_edit_component_1.UserEditComponent }
+            { path: '/', name: 'GroupsList', component: groups_list_component_1.GroupsListComponent, useAsDefault: true },
+            { path: '/:id', name: 'GroupDetail', component: group_detail_component_1.GroupDetailComponent },
+            { path: '/add', name: 'GroupAdd', component: group_add_component_1.GroupAddComponent },
+            { path: '/edit/:id', name: 'GroupEdit', component: group_edit_component_1.GroupEditComponent }
         ]), 
         __metadata('design:paramtypes', [])
-    ], UsersComponent);
-    return UsersComponent;
+    ], GroupsComponent);
+    return GroupsComponent;
 }());
-exports.UsersComponent = UsersComponent;
-//# sourceMappingURL=users.component.js.map
+exports.GroupsComponent = GroupsComponent;
+//# sourceMappingURL=groups.component.js.map

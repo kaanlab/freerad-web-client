@@ -1,7 +1,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Новый пользователь</h1>
+        <h1 class="page-header">Редактирование пользователя {{ user.userName }}</h1>
  </div>
     <!-- /.col-lg-12 -->
     <!-- /.row -->
@@ -9,14 +9,14 @@
         <div class="col-lg-6">
             <div class="panel" [ngClass]="submitted? 'panel-success' : 'panel-default'">
                 <div class="panel-heading">                    
-                     <span [hidden]="!submitted">Сохранить пользователя {{user.userName}}?</span>
+                     <span [hidden]="!submitted">Сохранить изменения {{user.userName}}?</span>
                      <span>&nbsp;</span> 
                      <span [hidden]="submitted"><button class="btn btn-default" (click)="goBack()"><i class="fa fa-arrow-circle-left fa-lg"></i></button></span>
                 </div>
                  <!-- /.panel-heading -->
                 <div class="panel-body">
                    <div [hidden]="submitted">
-                     <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #userAdd="ngForm">
+                     <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #userEdit="ngForm">
                       <div class="form-group">
                           <label for="userName" class="col-sm-2 control-label">Имя пользователя</label>
                           <div class="col-sm-10">
@@ -44,7 +44,7 @@
                       <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
                               <span><button type="button" class="btn btn-default" (click)="clearForm()"><i class="fa fa-eraser fa-lg"></i> очистить</button></span>                   
-                              <span><button type="submit" class="btn btn-default pull-right"  [disabled]="!userAdd.form.valid"><i class="fa fa-save fa-lg"></i> сохранить</button></span>
+                              <span><button type="submit" class="btn btn-default pull-right"  [disabled]="!userEdit.form.valid"><i class="fa fa-save fa-lg"></i> сохранить</button></span>
                           </div>
                       </div>
                   </form>

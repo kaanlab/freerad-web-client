@@ -11,65 +11,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
-var UserService = (function () {
-    function UserService(http) {
+var GroupService = (function () {
+    function GroupService(http) {
         this.http = http;
-        this.apiUrl = 'http://localhost:51164/api/users';
+        this.apiUrl = 'http://localhost:51164/api/groups';
     }
     // Get all authors
-    UserService.prototype.getUsers = function () {
+    GroupService.prototype.getGroups = function () {
         return this.http.get(this.apiUrl)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    UserService.prototype.getUser = function (id) {
-        return this.getUsers()
-            .then(function (users) { return users.find(function (user) { return user.id == id; }); });
+    GroupService.prototype.getGroup = function (id) {
+        return this.getGroups()
+            .then(function (groups) { return groups.find(function (group) { return group.id == id; }); });
     };
-    // Add new User
-    UserService.prototype.addUser = function (user) {
-        var body = JSON.stringify(user);
+    // Add new Group
+    GroupService.prototype.addGroup = function (group) {
+        var body = JSON.stringify(group);
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.apiUrl, body, options)
             .toPromise()
-            .then(function () { return user; })
+            .then(function () { return group; })
             .catch(this.handleError);
     };
-    // Update existing User
-    UserService.prototype.editUser = function (user) {
-        var body = JSON.stringify(user);
+    // Update existing Group
+    GroupService.prototype.editGroup = function (group) {
+        var body = JSON.stringify(group);
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         var options = new http_1.RequestOptions({ headers: headers });
-        var url = this.apiUrl + "/" + user.id;
+        var url = this.apiUrl + "/" + group.id;
         return this.http.put(url, body, options)
             .toPromise()
-            .then(function () { return user; })
+            .then(function () { return group; })
             .catch(this.handleError);
     };
     // Delete existing User
-    UserService.prototype.deleteUser = function (user) {
-        var body = JSON.stringify(user);
+    GroupService.prototype.deleteGroup = function (group) {
+        var body = JSON.stringify(group);
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        var url = this.apiUrl + "/" + user.id;
+        var url = this.apiUrl + "/" + group.id;
         return this.http.delete(url, { headers: headers, body: body })
             .toPromise()
             .catch(this.handleError);
     };
     // Handle errors
-    UserService.prototype.handleError = function (error) {
+    GroupService.prototype.handleError = function (error) {
         console.error('Error:', error); // log to console instead
         return Promise.reject(error.message || error);
     };
-    UserService = __decorate([
+    GroupService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], UserService);
-    return UserService;
+    ], GroupService);
+    return GroupService;
 }());
-exports.UserService = UserService;
-//# sourceMappingURL=user.service.js.map
+exports.GroupService = GroupService;
+//# sourceMappingURL=group.service.js.map

@@ -12,25 +12,25 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
-var user_1 = require('./user');
-var user_service_1 = require('./user.service');
-var UserDetailComponent = (function () {
-    function UserDetailComponent(userService, routeParams, toastyService, router) {
-        this.userService = userService;
+var group_1 = require('./group');
+var group_service_1 = require('./group.service');
+var GroupDetailComponent = (function () {
+    function GroupDetailComponent(groupService, routeParams, toastyService, router) {
+        this.groupService = groupService;
         this.routeParams = routeParams;
         this.toastyService = toastyService;
         this.router = router;
         this.confirmDelete = false;
-        this.user = new user_1.User();
+        this.group = new group_1.Group();
     }
-    UserDetailComponent.prototype.ngOnInit = function () {
+    GroupDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         var id = +this.routeParams.get('id');
-        this.userService.getUser(id).then(function (user) { return _this.user = user; });
+        this.groupService.getGroup(id).then(function (group) { return _this.group = group; });
     };
-    UserDetailComponent.prototype.onDelete = function () {
+    GroupDetailComponent.prototype.onDelete = function () {
         var _this = this;
-        this.userService.deleteUser(this.user)
+        this.groupService.deleteGroup(this.group)
             .then(function () { return _this.toastyService
             .error({
             title: "Сообщение:",
@@ -42,33 +42,33 @@ var UserDetailComponent = (function () {
             .then(function () { return _this.goBack(); })
             .catch(function (error) { return _this.errorMessage = error; });
     };
-    UserDetailComponent.prototype.goBack = function () {
+    GroupDetailComponent.prototype.goBack = function () {
         this.navigateBack();
     };
-    UserDetailComponent.prototype.onEdit = function () {
+    GroupDetailComponent.prototype.onEdit = function () {
         var id = +this.routeParams.get('id');
-        this.router.navigate(['UserEdit', { id: id }]);
+        this.router.navigate(['GroupEdit', { id: id }]);
     };
-    UserDetailComponent.prototype.navigateBack = function () {
-        this.router.navigate(['UsersList']);
+    GroupDetailComponent.prototype.navigateBack = function () {
+        this.router.navigate(['GroupsList']);
     };
-    UserDetailComponent.prototype.getMessage = function () {
-        return 'Пользователь ' + this.user.userName + ' удален!';
+    GroupDetailComponent.prototype.getMessage = function () {
+        return 'Группа ' + this.group.groupName + ' удалена!';
     };
-    UserDetailComponent = __decorate([
+    GroupDetailComponent = __decorate([
         core_1.Component({
-            selector: 'user-detail',
-            templateUrl: 'app/user/user-detail.component.html',
+            selector: 'group-detail',
+            templateUrl: 'app/group/group-detail.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
                 common_1.NgClass,
                 ng2_toasty_1.Toasty
             ],
-            providers: [user_service_1.UserService]
+            providers: [group_service_1.GroupService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
-    ], UserDetailComponent);
-    return UserDetailComponent;
+        __metadata('design:paramtypes', [group_service_1.GroupService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
+    ], GroupDetailComponent);
+    return GroupDetailComponent;
 }());
-exports.UserDetailComponent = UserDetailComponent;
-//# sourceMappingURL=user-detail.component.js.map
+exports.GroupDetailComponent = GroupDetailComponent;
+//# sourceMappingURL=group-detail.component.js.map

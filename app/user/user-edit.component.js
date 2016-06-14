@@ -14,25 +14,31 @@ var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var user_1 = require('./user');
 var user_service_1 = require('./user.service');
-var UserDetailComponent = (function () {
-    function UserDetailComponent(userService, routeParams, toastyService, router) {
+var UserEditComponent = (function () {
+    function UserEditComponent(userService, router, routeParams, toastyService) {
         this.userService = userService;
+        this.router = router;
         this.routeParams = routeParams;
         this.toastyService = toastyService;
-        this.router = router;
-        this.confirmDelete = false;
+        this.editMode = 'create';
+        this.submitted = false;
         this.user = new user_1.User();
+        this.active = true;
     }
-    UserDetailComponent.prototype.ngOnInit = function () {
+    UserEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         var id = +this.routeParams.get('id');
         this.userService.getUser(id).then(function (user) { return _this.user = user; });
     };
-    UserDetailComponent.prototype.onDelete = function () {
+    UserEditComponent.prototype.onSubmit = function () {
+        this.submitted = true;
+    };
+    UserEditComponent.prototype.onSave = function () {
         var _this = this;
-        this.userService.deleteUser(this.user)
+        this.submitted = true;
+        this.userService.editUser(this.user)
             .then(function () { return _this.toastyService
-            .error({
+            .success({
             title: "Сообщение:",
             msg: _this.getMessage(),
             showClose: true,
@@ -42,23 +48,29 @@ var UserDetailComponent = (function () {
             .then(function () { return _this.goBack(); })
             .catch(function (error) { return _this.errorMessage = error; });
     };
-    UserDetailComponent.prototype.goBack = function () {
+    UserEditComponent.prototype.clearForm = function () {
+        var _this = this;
+        this.user = new user_1.User();
+        this.active = false;
+        setTimeout(function () { return _this.active = true; }, 0);
+    };
+    UserEditComponent.prototype.goBack = function () {
         this.navigateBack();
     };
-    UserDetailComponent.prototype.onEdit = function () {
-        var id = +this.routeParams.get('id');
-        this.router.navigate(['UserEdit', { id: id }]);
-    };
-    UserDetailComponent.prototype.navigateBack = function () {
+    UserEditComponent.prototype.navigateBack = function () {
         this.router.navigate(['UsersList']);
     };
-    UserDetailComponent.prototype.getMessage = function () {
-        return 'Пользователь ' + this.user.userName + ' удален!';
+    UserEditComponent.prototype.getMessage = function () {
+        return 'Данные пользователя ' + this.user.userName + ' успешно обновлены!';
     };
-    UserDetailComponent = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', user_1.User)
+    ], UserEditComponent.prototype, "user", void 0);
+    UserEditComponent = __decorate([
         core_1.Component({
-            selector: 'user-detail',
-            templateUrl: 'app/user/user-detail.component.html',
+            selector: 'user-add',
+            templateUrl: 'app/user/user-edit.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
                 common_1.NgClass,
@@ -66,9 +78,9 @@ var UserDetailComponent = (function () {
             ],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
-    ], UserDetailComponent);
-    return UserDetailComponent;
+        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService])
+    ], UserEditComponent);
+    return UserEditComponent;
 }());
-exports.UserDetailComponent = UserDetailComponent;
-//# sourceMappingURL=user-detail.component.js.map
+exports.UserEditComponent = UserEditComponent;
+//# sourceMappingURL=user-edit.component.js.map

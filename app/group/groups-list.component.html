@@ -1,7 +1,7 @@
 
  <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Список пользователей</h1>
+        <h1 class="page-header">Список групп</h1>
     </div>
     <!-- /.col-lg-12 -->
     <!-- /.row -->
@@ -10,7 +10,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">                    
                      <span>&nbsp;</span>
-                     <button class="btn btn-default" (click)="goToNewUser()"><i class="fa fa-user-plus fa-lg"></i></button>                     
+                     <button class="btn btn-default" (click)="goToNewGroup()"><i class="fa fa-user-plus fa-lg"></i></button>                     
                  </div>
                  <!-- /.panel-heading -->
                  <div class="panel-body">
@@ -19,9 +19,9 @@
                             <span class="sr-only">Loading...</span>
                       </div>
                       <ul class="list-group">
-                         <a href="" [routerLink]="['UserDetail', {id: user.id}]" *ngFor="let user of users" class="list-group-item" (click)="onSelect(user)"  [class.selected]="user === selectedUser">
-                            <span><i class="fa fa-credit-card fa-lg"></i></span>
-                            <span> - {{user.userName}}</span>
+                         <a href="" [routerLink]="['GroupDetail', {id: group.id}]" *ngFor="let group of groups" class="list-group-item">
+                            <span><i class="fa fa-suitcase fa-lg"></i></span>
+                            <span> - {{group.groupName}}</span>
                          </a>
                       </ul>
                  </div>

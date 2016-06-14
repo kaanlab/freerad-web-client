@@ -4,37 +4,37 @@ import { NgForm, NgClass } from '@angular/common';
 
 import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
 
-import { User } from './user';
-import { UserService } from './user.service';
+import { Group } from './group';
+import { GroupService } from './group.service';
 
 @Component({
-    selector: 'user-add',
-    templateUrl: 'app/user/user-add.component.html',
+    selector: 'group-add',
+    templateUrl: 'app/group/group-add.component.html',
     directives: [
         ROUTER_DIRECTIVES,
         NgClass,
         Toasty        
     ],
-    providers: [ UserService ]   
+    providers: [ GroupService ]   
 })
 
-export class UserAddComponent implements OnInit {
+export class GroupAddComponent implements OnInit {
     
     private editMode:string = 'create';
     private submitted:boolean = false;
     
-    user: User;
+    group: Group;
     errorMessage: any;
     active:boolean = true;   
 
     constructor(        
-        private userService: UserService,
+        private groupService: GroupService,
         private router: Router,
         private toastyService: ToastyService
         ) { }
     
     ngOnInit() {
-        this.user = new User();             
+        this.group = new Group();             
     }
     
     onSubmit(){        
@@ -43,7 +43,7 @@ export class UserAddComponent implements OnInit {
     
     onSave(){        
         this.submitted = true;
-        this.userService.addUser(this.user)
+        this.groupService.addGroup(this.group)
                         .then(() => this.toastyService
                                         .success({
                                           title: "Сообщение:",
@@ -57,7 +57,7 @@ export class UserAddComponent implements OnInit {
     }
     
     clearForm(){        
-        this.user = new User();
+        this.group = new Group();
         this.active = false;
         setTimeout(()=> this.active=true, 0);
     }
@@ -67,11 +67,11 @@ export class UserAddComponent implements OnInit {
     }
 
     private navigateBack(){
-        this.router.navigate(['UsersList']);
+        this.router.navigate(['GroupsList']);
     }
 
     private getMessage(): string {
-        return 'Пользователь ' + this.user.userName + ' сохранен!';
+        return 'Группа ' + this.group.groupName + ' сохранена!';
     }
 
     // remove Otput

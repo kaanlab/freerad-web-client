@@ -6,6 +6,7 @@ import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-
 import { UsersListComponent } from './users-list.component';
 import { UserDetailComponent } from './user-detail.component';
 import { UserAddComponent } from './user-add.component';
+import { UserEditComponent } from './user-edit.component';
 
 @Component({
     selector: 'users',
@@ -22,7 +23,8 @@ import { UserAddComponent } from './user-add.component';
 @RouteConfig([
     { path: '/', name: 'UsersList', component: UsersListComponent, useAsDefault: true },
     { path: '/:id', name: 'UserDetail', component: UserDetailComponent },
-    { path: '/add', name: 'UserAdd', component: UserAddComponent }
+    { path: '/add', name: 'UserAdd', component: UserAddComponent },
+    { path: '/edit/:id', name: 'UserEdit', component: UserEditComponent}
     
 ])
 

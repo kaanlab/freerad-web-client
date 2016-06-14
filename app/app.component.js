@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var users_component_1 = require('./user/users.component');
+var groups_component_1 = require('./group/groups.component');
 var AppComponent = (function () {
     function AppComponent(router) {
         this.router = router;
@@ -29,7 +30,8 @@ var AppComponent = (function () {
         }),
         router_deprecated_1.RouteConfig([
             { path: '/dashborard', name: 'Dashboard', component: dashboard_component_1.DashboardComponent, useAsDefault: true },
-            { path: '/user/...', name: 'Users', component: users_component_1.UsersComponent }
+            { path: '/user/...', name: 'Users', component: users_component_1.UsersComponent },
+            { path: '/group/...', name: 'Groups', component: groups_component_1.GroupsComponent }
         ]), 
         __metadata('design:paramtypes', [router_deprecated_1.Router])
     ], AppComponent);

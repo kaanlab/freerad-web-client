@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angul
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './user/users.component';
+import { GroupsComponent } from './group/groups.component';
 
 @Component({
     selector: 'my-app',
@@ -13,7 +14,8 @@ import { UsersComponent } from './user/users.component';
 
 @RouteConfig([
     { path: '/dashborard', name: 'Dashboard', component: DashboardComponent, useAsDefault: true },
-    { path: '/user/...', name: 'Users', component: UsersComponent }    
+    { path: '/user/...', name: 'Users', component: UsersComponent }, 
+    { path: '/group/...', name: 'Groups', component: GroupsComponent }    
 ])
 
 export class AppComponent {

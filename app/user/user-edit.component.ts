@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
+import { Router, RouteParams, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { NgForm, NgClass } from '@angular/common';
 
 import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
@@ -9,7 +9,7 @@ import { UserService } from './user.service';
 
 @Component({
     selector: 'user-add',
-    templateUrl: 'app/user/user-add.component.html',
+    templateUrl: 'app/user/user-edit.component.html',
     directives: [
         ROUTER_DIRECTIVES,
         NgClass,
@@ -18,23 +18,25 @@ import { UserService } from './user.service';
     providers: [ UserService ]   
 })
 
-export class UserAddComponent implements OnInit {
+export class UserEditComponent implements OnInit {
     
     private editMode:string = 'create';
     private submitted:boolean = false;
     
-    user: User;
+    @Input() user: User = new User();
     errorMessage: any;
     active:boolean = true;   
 
     constructor(        
         private userService: UserService,
         private router: Router,
+        private routeParams: RouteParams,
         private toastyService: ToastyService
         ) { }
     
     ngOnInit() {
-        this.user = new User();             
+        let id = +this.routeParams.get('id');
+        this.userService.getUser(id).then(user => this.user = user);          
     }
     
     onSubmit(){        
@@ -43,7 +45,7 @@ export class UserAddComponent implements OnInit {
     
     onSave(){        
         this.submitted = true;
-        this.userService.addUser(this.user)
+        this.userService.editUser(this.user)
                         .then(() => this.toastyService
                                         .success({
                                           title: "Сообщение:",
@@ -71,8 +73,6 @@ export class UserAddComponent implements OnInit {
     }
 
     private getMessage(): string {
-        return 'Пользователь ' + this.user.userName + ' сохранен!';
+        return 'Данные пользователя ' + this.user.userName + ' успешно обновлены!';
     }
-
-    // remove Otput
 }
