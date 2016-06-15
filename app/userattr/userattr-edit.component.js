@@ -52,7 +52,7 @@ var UserAttrEditComponent = (function () {
         this.navigateBack();
     };
     UserAttrEditComponent.prototype.navigateBack = function () {
-        this.router.navigate(['UsersAttrList']);
+        this.router.navigateByUrl('/user');
     };
     UserAttrEditComponent.prototype.getMessage = function () {
         return 'Данные пользователя ' + this.userAttr.userName + ' успешно обновлены!';

@@ -21,7 +21,7 @@ var UsersAttrComponent = (function () {
     UsersAttrComponent = __decorate([
         core_1.Component({
             selector: 'users-attr',
-            template: "\n            <router-outlet></router-outlet>\n            <ng2-toasty></ng2-toasty>\n    ",
+            template: "\n            <router-outlet></router-outlet>\n            \n    ",
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
                 ng2_toasty_1.Toasty

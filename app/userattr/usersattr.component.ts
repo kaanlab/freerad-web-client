@@ -12,7 +12,7 @@ import { UserAttrEditComponent } from './userattr-edit.component';
     selector: 'users-attr',
     template: `
             <router-outlet></router-outlet>
-            <ng2-toasty></ng2-toasty>
+            
     `,
     directives: [
         ROUTER_DIRECTIVES,

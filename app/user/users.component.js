@@ -16,6 +16,9 @@ var user_detail_component_1 = require('./user-detail.component');
 var user_add_component_1 = require('./user-add.component');
 var user_edit_component_1 = require('./user-edit.component');
 var usersattr_component_1 = require('../userattr/usersattr.component');
+var userattr_detail_component_1 = require('../userattr/userattr-detail.component');
+var userattr_add_component_1 = require('../userattr/userattr-add.component');
+var userattr_edit_component_1 = require('../userattr/userattr-edit.component');
 var UsersComponent = (function () {
     function UsersComponent() {
     }
@@ -33,7 +36,10 @@ var UsersComponent = (function () {
             { path: '/:id', name: 'UserDetail', component: user_detail_component_1.UserDetailComponent },
             { path: '/add', name: 'UserAdd', component: user_add_component_1.UserAddComponent },
             { path: '/edit/:id', name: 'UserEdit', component: user_edit_component_1.UserEditComponent },
-            { path: '/usersattr/...', name: 'UsersAttr', component: usersattr_component_1.UsersAttrComponent }
+            { path: '/userattr/...', name: 'UsersAttr', component: usersattr_component_1.UsersAttrComponent },
+            { path: '/userattr/:id', name: 'UserAttrDetail', component: userattr_detail_component_1.UserAttrDetailComponent },
+            { path: '/userattr/add', name: 'UserAttrAdd', component: userattr_add_component_1.UserAttrAddComponent },
+            { path: '/userattr/edit/:id', name: 'UserAttrEdit', component: userattr_edit_component_1.UserAttrEditComponent }
         ]), 
         __metadata('design:paramtypes', [])
     ], UsersComponent);

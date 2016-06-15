@@ -28,7 +28,7 @@ var UsersAttrListComponent = (function () {
         this.navigateToNewUserAttr();
     };
     UsersAttrListComponent.prototype.navigateToNewUserAttr = function () {
-        this.router.navigate(['UserAttrAdd']);
+        this.router.navigateByUrl('/user/userattr/add');
     };
     UsersAttrListComponent = __decorate([
         core_1.Component({

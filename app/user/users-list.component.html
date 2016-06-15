@@ -1,14 +1,15 @@
 
  <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Список пользователей</h1>
+        <h1 class="page-header">Пользователи</h1>
     </div>
     <!-- /.col-lg-12 -->
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="panel panel-default">
-                <div class="panel-heading">                    
+                <div class="panel-heading">
+                     Список пользователей                    
                      <span>&nbsp;</span>
                      <button class="btn btn-default" (click)="goToNewUser()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
                  </div>
@@ -26,13 +27,7 @@
                       </ul>
                  </div>
              </div>
-         </div>
-         <div class="col-lg-6">
-             <form role="form">
-                 <div class="list-group">
-                     <a href="" [routerLink]="['UsersAttr', 'UsersAttrList']" class="list-group-item">Добавить доп.атрибуты пользователю</a>
-                 </div>
-             </form>
-         </div>        
-    </div>
+         </div>         
+             <usersattr-list></usersattr-list>             
+     </div>
 </div>

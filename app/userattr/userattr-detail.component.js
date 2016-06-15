@@ -50,7 +50,7 @@ var UserAttrDetailComponent = (function () {
         this.router.navigate(['UserAttrEdit', { id: id }]);
     };
     UserAttrDetailComponent.prototype.navigateBack = function () {
-        this.router.navigate(['UsersAttrList']);
+        this.router.navigateByUrl('/user');
     };
     UserAttrDetailComponent.prototype.getMessage = function () {
         return 'Доп.атрибут пользователя ' + this.userAttr.userName + ' удален!';

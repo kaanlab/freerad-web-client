@@ -36,6 +36,6 @@ export class UsersAttrListComponent implements OnInit {
     }
 
     private navigateToNewUserAttr(){
-        this.router.navigate(['UserAttrAdd']);
+        this.router.navigateByUrl('/user/userattr/add');
     }
 }

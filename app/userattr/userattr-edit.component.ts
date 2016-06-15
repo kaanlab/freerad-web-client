@@ -63,7 +63,7 @@ export class UserAttrEditComponent implements OnInit {
     }
 
     private navigateBack(){
-        this.router.navigate(['UsersAttrList']);
+        this.router.navigateByUrl('/user');
     }
 
     private getMessage(): string {
