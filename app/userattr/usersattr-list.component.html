@@ -1,7 +1,7 @@
 
  <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Список групп</h1>
+        <h1 class="page-header">Список доп.атрибутов пользователей</h1>
     </div>
     <!-- /.col-lg-12 -->
     <!-- /.row -->
@@ -10,7 +10,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">                    
                      <span>&nbsp;</span>
-                     <button class="btn btn-default" (click)="goToNewGroup()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
+                     <button class="btn btn-default" (click)="goToNewUserAttr()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
                  </div>
                  <!-- /.panel-heading -->
                  <div class="panel-body">
@@ -19,9 +19,9 @@
                             <span class="sr-only">Loading...</span>
                       </div>
                       <ul class="list-group">
-                         <a href="" [routerLink]="['GroupDetail', {id: group.id}]" *ngFor="let group of groups" class="list-group-item">
-                            <span><i class="fa fa-users fa-lg"></i></span>
-                            <span> - {{ group.groupName }}</span>
+                         <a href="" [routerLink]="['UserAttrDetail', {id: userAttr.id}]" *ngFor="let userAttr of userAttrs" class="list-group-item">
+                            <span><i class="fa fa-user-plus fa-lg"></i></span>
+                            <span> - {{ userAttr.userName }}</span>
                          </a>
                       </ul>
                  </div>

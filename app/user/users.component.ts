@@ -7,6 +7,7 @@ import { UsersListComponent } from './users-list.component';
 import { UserDetailComponent } from './user-detail.component';
 import { UserAddComponent } from './user-add.component';
 import { UserEditComponent } from './user-edit.component';
+import { UsersAttrComponent } from '../userattr/usersattr.component';
 
 @Component({
     selector: 'users',
@@ -24,8 +25,8 @@ import { UserEditComponent } from './user-edit.component';
     { path: '/', name: 'UsersList', component: UsersListComponent, useAsDefault: true },
     { path: '/:id', name: 'UserDetail', component: UserDetailComponent },
     { path: '/add', name: 'UserAdd', component: UserAddComponent },
-    { path: '/edit/:id', name: 'UserEdit', component: UserEditComponent}
-    
+    { path: '/edit/:id', name: 'UserEdit', component: UserEditComponent},
+    { path: '/usersattr/...', name: 'UsersAttr', component: UsersAttrComponent }
 ])
 
 export class UsersComponent {

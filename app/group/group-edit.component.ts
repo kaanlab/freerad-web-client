@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { Router, RouteParams, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { NgForm, NgClass } from '@angular/common';
 
-import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
+import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
 import { Group } from './group';
 import { GroupService } from './group.service';
@@ -48,11 +48,11 @@ export class GroupEditComponent implements OnInit {
         this.groupService.editGroup(this.group)
                         .then(() => this.toastyService
                                         .success({
-                                          title: "Сообщение:",
-                                          msg: this.getMessage(),
-                                          showClose: true,
-                                          timeout: 9000,
-                                          theme: "bootstrap"
+                                            title: "Сообщение:",
+                                            msg: this.getMessage(),
+                                            showClose: true,
+                                            timeout: 9000,
+                                            theme: "bootstrap"
                                         }))
                         .then(() => this.goBack())                        
                         .catch(error => this.errorMessage = error);

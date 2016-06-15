@@ -18,7 +18,7 @@
                    <div [hidden]="submitted">
                      <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #groupEdit="ngForm">
                       <div class="form-group">
-                          <label for="userName" class="col-sm-2 control-label">Имя группы</label>
+                          <label for="userName" class="col-sm-2 control-label">Группа</label>
                           <div class="col-sm-10">
                               <input id="groupName" class="form-control" ngControl="groupName" [(ngModel)]="group.groupName" #groupName="ngForm" required minlength="3" maxlength="64" placeholder="Jon">             
                           </div>
@@ -53,7 +53,7 @@
          <div [hidden]="!submitted">
              <form class="form-horizontal">
                       <div class="form-group">
-                          <label class="col-sm-2 control-label">Имя группы</label>
+                          <label class="col-sm-2 control-label">Группа</label>
                           <div class="col-sm-10">
                               <input class="form-control" placeholder="{{ group.groupName }}" readonly>            
                           </div>

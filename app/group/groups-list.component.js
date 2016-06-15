@@ -20,7 +20,8 @@ var GroupsListComponent = (function () {
     GroupsListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.groupService.getGroups()
-            .then(function (groups) { return _this.groups = groups; }).then(function (loading) { return _this.loading = false; })
+            .then(function (groups) { return _this.groups = groups; })
+            .then(function (loading) { return _this.loading = false; })
             .catch(function (error) { return _this.errorMessage = error; });
     };
     GroupsListComponent.prototype.goToNewGroup = function () {

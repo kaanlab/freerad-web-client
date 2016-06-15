@@ -4,31 +4,31 @@ import { NgForm, NgClass } from '@angular/common';
 
 import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
-import { User } from './user';
-import { UserService } from './user.service';
+import { UserAttr } from './userattr';
+import { UserAttrService } from './userattr.service';
 
 @Component({
-    selector: 'user-add',
-    templateUrl: 'app/user/user-edit.component.html',
+    selector: 'userattr-add',
+    templateUrl: 'app/userattr/userattr-edit.component.html',
     directives: [
         ROUTER_DIRECTIVES,
         NgClass,
         Toasty        
     ],
-    providers: [ UserService ]   
+    providers: [ UserAttrService ]   
 })
 
-export class UserEditComponent implements OnInit {
+export class UserAttrEditComponent implements OnInit {
     
     private editMode:string = 'create';
     private submitted:boolean = false;
     
-    @Input() user: User = new User();
+    @Input() userAttr: UserAttr = new UserAttr();
     errorMessage: any;
     active:boolean = true;   
 
     constructor(        
-        private userService: UserService,
+        private userAttrService: UserAttrService,
         private router: Router,
         private routeParams: RouteParams,
         private toastyService: ToastyService
@@ -36,7 +36,7 @@ export class UserEditComponent implements OnInit {
     
     ngOnInit() {
         let id = +this.routeParams.get('id');
-        this.userService.getUser(id).then(user => this.user = user);          
+        this.userAttrService.getUserAttr(id).then(userAttr => this.userAttr = userAttr);          
     }
     
     onSubmit(){        
@@ -45,7 +45,7 @@ export class UserEditComponent implements OnInit {
     
     onSave(){        
         this.submitted = true;
-        this.userService.editUser(this.user)
+        this.userAttrService.editUserAttr(this.userAttr)
                         .then(() => this.toastyService
                                         .success({
                                             title: "Сообщение:",
@@ -58,21 +58,15 @@ export class UserEditComponent implements OnInit {
                         .catch(error => this.errorMessage = error);
     }
     
-    clearForm(){        
-        this.user = new User();
-        this.active = false;
-        setTimeout(()=> this.active=true, 0);
-    }
-
     goBack(){
         this.navigateBack();
     }
 
     private navigateBack(){
-        this.router.navigate(['UsersList']);
+        this.router.navigate(['UsersAttrList']);
     }
 
     private getMessage(): string {
-        return 'Данные пользователя ' + this.user.userName + ' успешно обновлены!';
+        return 'Данные пользователя ' + this.userAttr.userName + ' успешно обновлены!';
     }
 }

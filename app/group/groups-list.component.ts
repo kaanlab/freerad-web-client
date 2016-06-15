@@ -17,7 +17,6 @@ export class GroupsListComponent implements OnInit {
     private loading:boolean = true;
     
     groups: Group[];
-    
     errorMessage: any;
     
     constructor(
@@ -27,7 +26,8 @@ export class GroupsListComponent implements OnInit {
 
     ngOnInit() {
         this.groupService.getGroups()
-            .then(groups => this.groups = groups).then(loading => this.loading = false)
+            .then(groups => this.groups = groups)
+            .then(loading => this.loading = false)
             .catch(error => this.errorMessage = error);
     }
 

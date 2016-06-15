@@ -2,42 +2,42 @@ import { Component, OnInit } from '@angular/core';
 import { RouteParams, Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { NgForm, NgClass } from '@angular/common';
 
-import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
+import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
 
-import { Group } from './group';
-import { GroupService } from './group.service';
+import { UserAttr } from './userattr';
+import { UserAttrService } from './userattr.service';
 
 @Component({
-    selector: 'group-detail',
-    templateUrl: 'app/group/group-detail.component.html',    
+    selector: 'userattr-detail',
+    templateUrl: 'app/userattr/userattr-detail.component.html',    
     directives: [ 
         ROUTER_DIRECTIVES,
         NgClass,
         Toasty
     ],
-    providers: [ GroupService ]  
+    providers: [ UserAttrService ]  
 })
 
-export class GroupDetailComponent implements OnInit {
+export class UserAttrDetailComponent implements OnInit {
     
     private confirmDelete:boolean = false;
 
-    group: Group = new Group();
+    userAttr: UserAttr = new UserAttr();
     errorMessage: any
 
     constructor(
-        private groupService: GroupService,
+        private userAttrService: UserAttrService,
         private routeParams: RouteParams,
         private toastyService: ToastyService,
         private router: Router) { }
 
     ngOnInit() {
         let id = +this.routeParams.get('id');
-        this.groupService.getGroup(id).then(group => this.group = group);        
+        this.userAttrService.getUserAttr(id).then(userAttr => this.userAttr = userAttr);        
     }
 
     onDelete() {
-        this.groupService.deleteGroup(this.group)
+        this.userAttrService.deleteUserAttr(this.userAttr)
                         .then(() => this.toastyService
                                         .error({
                                             title: "Сообщение:",
@@ -56,14 +56,14 @@ export class GroupDetailComponent implements OnInit {
 
     onEdit(){
         let id = +this.routeParams.get('id');
-        this.router.navigate(['GroupEdit', { id: id}]);
+        this.router.navigate(['UserAttrEdit', { id: id}]);
     }
 
     private navigateBack(){
-        this.router.navigate(['GroupsList']);
+        this.router.navigate(['UsersAttrList']);
     }
 
     private getMessage(): string {
-        return 'Группа ' + this.group.groupName + ' удалена!';
+        return 'Доп.атрибут пользователя ' + this.userAttr.userName + ' удален!';
     }    
 }

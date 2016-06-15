@@ -6,7 +6,6 @@ import 'rxjs/add/operator/toPromise';
 import { User } from './user';
 
 @Injectable()
-
 export class UserService {
     
     private apiUrl:string = 'http://localhost:51164/api/users';

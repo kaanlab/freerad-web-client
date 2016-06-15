@@ -11,17 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
-var users_list_component_1 = require('./users-list.component');
-var user_detail_component_1 = require('./user-detail.component');
-var user_add_component_1 = require('./user-add.component');
-var user_edit_component_1 = require('./user-edit.component');
-var usersattr_component_1 = require('../userattr/usersattr.component');
-var UsersComponent = (function () {
-    function UsersComponent() {
+var usersattr_list_component_1 = require('./usersattr-list.component');
+var userattr_detail_component_1 = require('./userattr-detail.component');
+var userattr_add_component_1 = require('./userattr-add.component');
+var userattr_edit_component_1 = require('./userattr-edit.component');
+var UsersAttrComponent = (function () {
+    function UsersAttrComponent() {
     }
-    UsersComponent = __decorate([
+    UsersAttrComponent = __decorate([
         core_1.Component({
-            selector: 'users',
+            selector: 'users-attr',
             template: "\n            <router-outlet></router-outlet>\n            <ng2-toasty></ng2-toasty>\n    ",
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
@@ -29,15 +28,14 @@ var UsersComponent = (function () {
             ]
         }),
         router_deprecated_1.RouteConfig([
-            { path: '/', name: 'UsersList', component: users_list_component_1.UsersListComponent, useAsDefault: true },
-            { path: '/:id', name: 'UserDetail', component: user_detail_component_1.UserDetailComponent },
-            { path: '/add', name: 'UserAdd', component: user_add_component_1.UserAddComponent },
-            { path: '/edit/:id', name: 'UserEdit', component: user_edit_component_1.UserEditComponent },
-            { path: '/usersattr/...', name: 'UsersAttr', component: usersattr_component_1.UsersAttrComponent }
+            { path: '/', name: 'UsersAttrList', component: usersattr_list_component_1.UsersAttrListComponent, useAsDefault: true },
+            { path: '/:id', name: 'UserAttrDetail', component: userattr_detail_component_1.UserAttrDetailComponent },
+            { path: '/add', name: 'UserAttrAdd', component: userattr_add_component_1.UserAttrAddComponent },
+            { path: '/edit/:id', name: 'UserAttrEdit', component: userattr_edit_component_1.UserAttrEditComponent }
         ]), 
         __metadata('design:paramtypes', [])
-    ], UsersComponent);
-    return UsersComponent;
+    ], UsersAttrComponent);
+    return UsersAttrComponent;
 }());
-exports.UsersComponent = UsersComponent;
-//# sourceMappingURL=users.component.js.map
+exports.UsersAttrComponent = UsersAttrComponent;
+//# sourceMappingURL=usersattr.component.js.map

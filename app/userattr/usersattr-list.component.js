@@ -10,36 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var user_service_1 = require('./user.service');
-var UsersListComponent = (function () {
-    function UsersListComponent(router, userService) {
+var userattr_service_1 = require('./userattr.service');
+var UsersAttrListComponent = (function () {
+    function UsersAttrListComponent(router, userAttrService) {
         this.router = router;
-        this.userService = userService;
+        this.userAttrService = userAttrService;
         this.loading = true;
     }
-    UsersListComponent.prototype.ngOnInit = function () {
+    UsersAttrListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.userService.getUsers()
-            .then(function (users) { return _this.users = users; })
+        this.userAttrService.getUsersAttr()
+            .then(function (userAttrs) { return _this.userAttrs = userAttrs; })
             .then(function (loading) { return _this.loading = false; })
             .catch(function (error) { return _this.errorMessage = error; });
     };
-    UsersListComponent.prototype.goToNewUser = function () {
-        this.navigateToNewUser();
+    UsersAttrListComponent.prototype.goToNewUserAttr = function () {
+        this.navigateToNewUserAttr();
     };
-    UsersListComponent.prototype.navigateToNewUser = function () {
-        this.router.navigate(['UserAdd']);
+    UsersAttrListComponent.prototype.navigateToNewUserAttr = function () {
+        this.router.navigate(['UserAttrAdd']);
     };
-    UsersListComponent = __decorate([
+    UsersAttrListComponent = __decorate([
         core_1.Component({
-            selector: 'users-list',
-            templateUrl: 'app/user/users-list.component.html',
+            selector: 'usersattr-list',
+            templateUrl: 'app/userattr/usersattr-list.component.html',
             directives: [router_deprecated_1.ROUTER_DIRECTIVES],
-            providers: [user_service_1.UserService]
+            providers: [userattr_service_1.UserAttrService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, user_service_1.UserService])
-    ], UsersListComponent);
-    return UsersListComponent;
+        __metadata('design:paramtypes', [router_deprecated_1.Router, userattr_service_1.UserAttrService])
+    ], UsersAttrListComponent);
+    return UsersAttrListComponent;
 }());
-exports.UsersListComponent = UsersListComponent;
-//# sourceMappingURL=users-list.component.js.map
+exports.UsersAttrListComponent = UsersAttrListComponent;
+//# sourceMappingURL=usersattr-list.component.js.map

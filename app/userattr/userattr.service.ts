@@ -3,65 +3,65 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Group } from './group';
+import { UserAttr } from './userattr';
 
 @Injectable()
-export class GroupService {
+export class UserAttrService {
     
-    private apiUrl:string = 'http://localhost:51164/api/groups';
+    private apiUrl:string = 'http://localhost:51164/api/userattributes';
     
     constructor(private http: Http){ }
         
     // Get all authors
-    getGroups(): Promise<Group[]> {
+    getUsersAttr(): Promise<UserAttr[]> {
         return this.http.get(this.apiUrl)
                         .toPromise()
                         .then(response => response.json())                        
                         .catch(this.handleError);
     }
     
-    getGroup(id: number) {
-        return this.getGroups()
-            .then(groups => groups.find(group => group.id == id));
+    getUserAttr(id: number) {
+        return this.getUsersAttr()
+            .then(users => users.find(user => user.id == id));
             
     }
     
-    // Add new Group
-    addGroup(group: Group) {
-        let body = JSON.stringify(group);
+    // Add new UserAttr
+    addUserAttr(userAttr: UserAttr) {
+        let body = JSON.stringify(userAttr);
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.apiUrl, body, options)
                         .toPromise()
-                        .then(() => group)
+                        .then(() => userAttr)
                         .catch(this.handleError);
         
     }
 
-    // Update existing Group
-    editGroup(group: Group) {
-        let body = JSON.stringify(group);
+    // Update existing UserAttr
+    editUserAttr(userAttr: UserAttr) {
+        let body = JSON.stringify(userAttr);
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({ headers: headers });
 
-        let url = `${this.apiUrl}/${group.id}`;
+        let url = `${this.apiUrl}/${userAttr.id}`;
 
         return this.http.put(url, body, options)
                         .toPromise()
-                        .then(() => group)
+                        .then(() => userAttr)
                         .catch(this.handleError);
     }
     
     // Delete existing User
-    deleteGroup(group: Group) {
-        let body = JSON.stringify(group);
+    deleteUserAttr(userAttr: UserAttr) {
+        let body = JSON.stringify(userAttr);
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        let url = `${this.apiUrl}/${group.id}`;
+        let url = `${this.apiUrl}/${userAttr.id}`;
 
         return this.http.delete(url, { headers: headers, body: body })
                         .toPromise()

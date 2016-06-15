@@ -1,8 +1,8 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { NgForm, NgClass } from '@angular/common';
 
-import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
+import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
 import { Group } from './group';
 import { GroupService } from './group.service';
@@ -46,11 +46,11 @@ export class GroupAddComponent implements OnInit {
         this.groupService.addGroup(this.group)
                         .then(() => this.toastyService
                                         .success({
-                                          title: "Сообщение:",
-                                          msg: this.getMessage(),
-                                          showClose: true,
-                                          timeout: 9000,
-                                          theme: "bootstrap"
+                                            title: "Сообщение:",
+                                            msg: this.getMessage(),
+                                            showClose: true,
+                                            timeout: 9000,
+                                            theme: "bootstrap"
                                         }))
                         .then(() => this.goBack())                        
                         .catch(error => this.errorMessage = error);
@@ -73,6 +73,4 @@ export class GroupAddComponent implements OnInit {
     private getMessage(): string {
         return 'Группа ' + this.group.groupName + ' сохранена!';
     }
-
-    // remove Otput
 }

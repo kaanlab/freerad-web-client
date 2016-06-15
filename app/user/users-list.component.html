@@ -10,7 +10,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">                    
                      <span>&nbsp;</span>
-                     <button class="btn btn-default" (click)="goToNewUser()"><i class="fa fa-user-plus fa-lg"></i></button>                     
+                     <button class="btn btn-default" (click)="goToNewUser()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
                  </div>
                  <!-- /.panel-heading -->
                  <div class="panel-body">
@@ -19,13 +19,20 @@
                             <span class="sr-only">Loading...</span>
                       </div>
                       <ul class="list-group">
-                         <a href="" [routerLink]="['UserDetail', {id: user.id}]" *ngFor="let user of users" class="list-group-item" (click)="onSelect(user)"  [class.selected]="user === selectedUser">
-                            <span><i class="fa fa-credit-card fa-lg"></i></span>
-                            <span> - {{user.userName}}</span>
+                         <a href="" [routerLink]="['UserDetail', {id: user.id}]" *ngFor="let user of users" class="list-group-item">
+                            <span><i class="fa fa-user fa-lg"></i></span>
+                            <span> - {{ user.userName }}</span>
                          </a>
                       </ul>
                  </div>
              </div>
          </div>
+         <div class="col-lg-6">
+             <form role="form">
+                 <div class="list-group">
+                     <a href="" [routerLink]="['UsersAttr', 'UsersAttrList']" class="list-group-item">Добавить доп.атрибуты пользователю</a>
+                 </div>
+             </form>
+         </div>        
     </div>
 </div>
