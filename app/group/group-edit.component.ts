@@ -8,7 +8,7 @@ import { Group } from './group';
 import { GroupService } from './group.service';
 
 @Component({
-    selector: 'group-add',
+    selector: 'group-edit',
     templateUrl: 'app/group/group-edit.component.html',
     directives: [
         ROUTER_DIRECTIVES,
@@ -73,6 +73,6 @@ export class GroupEditComponent implements OnInit {
     }
 
     private getMessage(): string {
-        return 'Данные о группе ' + this.group.groupName + ' успешно обновлены!';
+        return 'Данные о группе ' + this.group.groupName + ' обновлены!';
     }
 }

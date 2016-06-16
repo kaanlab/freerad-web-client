@@ -11,30 +11,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 //import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
-var usersattr_list_component_1 = require('./usersattr-list.component');
-var userattr_detail_component_1 = require('./userattr-detail.component');
-var userattr_add_component_1 = require('./userattr-add.component');
-var userattr_edit_component_1 = require('./userattr-edit.component');
-var UsersAttrComponent = (function () {
-    function UsersAttrComponent() {
+var groupsattr_list_component_1 = require('./groupsattr-list.component');
+var groupattr_detail_component_1 = require('./groupattr-detail.component');
+var groupattr_add_component_1 = require('./groupattr-add.component');
+var groupattr_edit_component_1 = require('./groupattr-edit.component');
+var GroupsAttrComponent = (function () {
+    function GroupsAttrComponent() {
     }
-    UsersAttrComponent = __decorate([
+    GroupsAttrComponent = __decorate([
         core_1.Component({
-            selector: 'users-attr',
+            selector: 'groups-attr',
             template: "\n            <router-outlet></router-outlet>            \n    ",
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES
             ]
         }),
         router_deprecated_1.RouteConfig([
-            { path: '/', name: 'UsersAttrList', component: usersattr_list_component_1.UsersAttrListComponent, useAsDefault: true },
-            { path: '/:id', name: 'UserAttrDetail', component: userattr_detail_component_1.UserAttrDetailComponent },
-            { path: '/add', name: 'UserAttrAdd', component: userattr_add_component_1.UserAttrAddComponent },
-            { path: '/edit/:id', name: 'UserAttrEdit', component: userattr_edit_component_1.UserAttrEditComponent }
+            { path: '/', name: 'GroupsAttrList', component: groupsattr_list_component_1.GroupsAttrListComponent, useAsDefault: true },
+            { path: '/:id', name: 'GroupAttrDetail', component: groupattr_detail_component_1.GroupAttrDetailComponent },
+            { path: '/add', name: 'GroupAttrAdd', component: groupattr_add_component_1.GroupAttrAddComponent },
+            { path: '/edit/:id', name: 'GroupAttrEdit', component: groupattr_edit_component_1.GroupAttrEditComponent }
         ]), 
         __metadata('design:paramtypes', [])
-    ], UsersAttrComponent);
-    return UsersAttrComponent;
+    ], GroupsAttrComponent);
+    return GroupsAttrComponent;
 }());
-exports.UsersAttrComponent = UsersAttrComponent;
-//# sourceMappingURL=usersattr.component.js.map
+exports.GroupsAttrComponent = GroupsAttrComponent;
+//# sourceMappingURL=groupsattr.component.js.map

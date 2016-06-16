@@ -61,7 +61,7 @@ var GroupEditComponent = (function () {
         this.router.navigate(['GroupsList']);
     };
     GroupEditComponent.prototype.getMessage = function () {
-        return 'Данные о группе ' + this.group.groupName + ' успешно обновлены!';
+        return 'Данные о группе ' + this.group.groupName + ' обновлены!';
     };
     __decorate([
         core_1.Input(), 
@@ -69,7 +69,7 @@ var GroupEditComponent = (function () {
     ], GroupEditComponent.prototype, "group", void 0);
     GroupEditComponent = __decorate([
         core_1.Component({
-            selector: 'group-add',
+            selector: 'group-edit',
             templateUrl: 'app/group/group-edit.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,

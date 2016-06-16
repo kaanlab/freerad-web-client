@@ -8,7 +8,7 @@ import { UserAttr } from './userattr';
 import { UserAttrService } from './userattr.service';
 
 @Component({
-    selector: 'userattr-add',
+    selector: 'userattr-edit',
     templateUrl: 'app/userattr/userattr-edit.component.html',
     directives: [
         ROUTER_DIRECTIVES,
@@ -67,6 +67,6 @@ export class UserAttrEditComponent implements OnInit {
     }
 
     private getMessage(): string {
-        return 'Данные пользователя ' + this.userAttr.userName + ' успешно обновлены!';
+        return 'Доп.атрибуты ' + this.userAttr.userName + ' обновлены!';
     }
 }

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var group_service_1 = require('./group.service');
+var groupsattr_list_component_1 = require('../groupattr/groupsattr-list.component');
 var GroupsListComponent = (function () {
     function GroupsListComponent(router, groupService) {
         this.router = router;
@@ -34,7 +35,10 @@ var GroupsListComponent = (function () {
         core_1.Component({
             selector: 'groups-list',
             templateUrl: 'app/group/groups-list.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [
+                router_deprecated_1.ROUTER_DIRECTIVES,
+                groupsattr_list_component_1.GroupsAttrListComponent
+            ],
             providers: [group_service_1.GroupService]
         }), 
         __metadata('design:paramtypes', [router_deprecated_1.Router, group_service_1.GroupService])

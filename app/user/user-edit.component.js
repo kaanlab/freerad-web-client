@@ -69,7 +69,7 @@ var UserEditComponent = (function () {
     ], UserEditComponent.prototype, "user", void 0);
     UserEditComponent = __decorate([
         core_1.Component({
-            selector: 'user-add',
+            selector: 'user-edit',
             templateUrl: 'app/user/user-edit.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,

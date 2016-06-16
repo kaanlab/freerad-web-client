@@ -16,7 +16,7 @@ export class UsersAttrListComponent implements OnInit {
     private loading:boolean = true;
     
     userAttrs: UserAttr[];
-    selectedUser: UserAttr;
+    //selectedUser: UserAttr;
     errorMessage: any;
     
     constructor(

@@ -1,42 +1,51 @@
-import { Component, OnInit, EventEmitter, Input } from '@angular/core';
-import { Router, RouteParams, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { Component, OnInit } from '@angular/core';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { NgForm, NgClass } from '@angular/common';
 
 import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
-import { User } from './user';
-import { UserService } from './user.service';
+import { GroupAttr } from './groupattr';
+import { GroupAttrService } from './groupattr.service';
+import { Group } from '../group/group';
+import { GroupService } from '../group/group.service';
 
 @Component({
-    selector: 'user-edit',
-    templateUrl: 'app/user/user-edit.component.html',
+    selector: 'groupattr-add',
+    templateUrl: 'app/groupattr/groupattr-add.component.html',
     directives: [
         ROUTER_DIRECTIVES,
         NgClass,
         Toasty        
     ],
-    providers: [ UserService ]   
+    providers: [ 
+        GroupAttrService,
+        GroupService
+    ]   
 })
 
-export class UserEditComponent implements OnInit {
+export class GroupAttrAddComponent implements OnInit {
     
     private editMode:string = 'create';
     private submitted:boolean = false;
     
-    @Input() user: User = new User();
+    groupAttr: GroupAttr;
+    groups: Group[];  
+
     errorMessage: any;
     active:boolean = true;   
 
     constructor(        
-        private userService: UserService,
+        private groupAttrService: GroupAttrService,
+        private groupService: GroupService,
         private router: Router,
-        private routeParams: RouteParams,
         private toastyService: ToastyService
         ) { }
     
     ngOnInit() {
-        let id = +this.routeParams.get('id');
-        this.userService.getUser(id).then(user => this.user = user);          
+        this.groupAttr = new GroupAttr();
+        this.groupService.getGroups()
+                        .then(groups => this.groups = groups)            
+                        .catch(error => this.errorMessage = error);             
     }
     
     onSubmit(){        
@@ -45,9 +54,9 @@ export class UserEditComponent implements OnInit {
     
     onSave(){        
         this.submitted = true;
-        this.userService.editUser(this.user)
+        this.groupAttrService.addGroupAttr(this.groupAttr)
                         .then(() => this.toastyService
-                                        .success({
+                                        .success({ 
                                             title: "Сообщение:",
                                             msg: this.getMessage(),
                                             showClose: true,
@@ -59,7 +68,7 @@ export class UserEditComponent implements OnInit {
     }
     
     clearForm(){        
-        this.user = new User();
+        this.groupAttr = new GroupAttr();
         this.active = false;
         setTimeout(()=> this.active=true, 0);
     }
@@ -69,10 +78,10 @@ export class UserEditComponent implements OnInit {
     }
 
     private navigateBack(){
-        this.router.navigate(['UsersList']);
+        this.router.navigateByUrl('/group');
     }
 
     private getMessage(): string {
-        return 'Данные пользователя ' + this.user.userName + ' успешно обновлены!';
+        return 'Доп.атрибуты группы ' + this.groupAttr.groupName + ' сохранены!';
     }
 }

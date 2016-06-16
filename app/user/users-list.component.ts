@@ -20,7 +20,7 @@ export class UsersListComponent implements OnInit {
     private loading:boolean = true;
     
     users: User[];
-    selectedUser: User;
+    //selectedUser: User;
     errorMessage: any;
     
     constructor(

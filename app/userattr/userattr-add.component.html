@@ -9,7 +9,7 @@
         <div class="col-lg-6">
             <div class="panel" [ngClass]="submitted? 'panel-success' : 'panel-default'">
                 <div class="panel-heading">                    
-                     <span [hidden]="!submitted">Сохранить доп.атибут пользователя {{userAttr.userName}}?</span>
+                     <span [hidden]="!submitted">Сохранить доп.атибут пользователя {{ userAttr.userName }}?</span>
                      <span>&nbsp;</span> 
                      <span [hidden]="submitted"><button class="btn btn-default" (click)="goBack()"><i class="fa fa-arrow-circle-left fa-lg"></i></button></span>
                 </div>
@@ -21,7 +21,7 @@
                           <label for="userName" class="col-sm-2 control-label">Пользователь</label>
                           <div class="col-sm-10">
                               <select id="userName" class="form-control" ngControl="userName" [(ngModel)]="userAttr.userName" #userName="ngForm" required minlength="3" maxlength="64" placeholder="Jon">
-                                <option *ngFor="let user of users" [value]="user.userName">{{user.userName}}</option>
+                                <option *ngFor="let user of users" [value]="user.userName">{{ user.userName }}</option>
                               </select>             
                           </div>
                       </div>

@@ -4,40 +4,40 @@ import { NgForm, NgClass } from '@angular/common';
 
 import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
 
-import { UserAttr } from './userattr';
-import { UserAttrService } from './userattr.service';
+import { GroupAttr } from './groupattr';
+import { GroupAttrService } from './groupattr.service';
 
 @Component({
-    selector: 'userattr-detail',
-    templateUrl: 'app/userattr/userattr-detail.component.html',    
+    selector: 'groupattr-detail',
+    templateUrl: 'app/groupattr/groupattr-detail.component.html',    
     directives: [ 
         ROUTER_DIRECTIVES,
         NgClass,
         Toasty
     ],
-    providers: [ UserAttrService ]  
+    providers: [ GroupAttrService ]  
 })
 
-export class UserAttrDetailComponent implements OnInit {
+export class GroupAttrDetailComponent implements OnInit {
     
     private confirmDelete:boolean = false;
 
-    userAttr: UserAttr = new UserAttr();
+    groupAttr: GroupAttr = new GroupAttr();
     errorMessage: any
 
     constructor(
-        private userAttrService: UserAttrService,
+        private groupAttrService: GroupAttrService,
         private routeParams: RouteParams,
         private toastyService: ToastyService,
         private router: Router) { }
 
     ngOnInit() {
         let id = +this.routeParams.get('id');
-        this.userAttrService.getUserAttr(id).then(userAttr => this.userAttr = userAttr);        
+        this.groupAttrService.getGroupAttr(id).then(groupAttr => this.groupAttr = groupAttr);        
     }
 
     onDelete() {
-        this.userAttrService.deleteUserAttr(this.userAttr)
+        this.groupAttrService.deleteGroupAttr(this.groupAttr)
                         .then(() => this.toastyService
                                         .error({
                                             title: "Сообщение:",
@@ -56,14 +56,14 @@ export class UserAttrDetailComponent implements OnInit {
 
     onEdit(){
         let id = +this.routeParams.get('id');
-        this.router.navigate(['UserAttrEdit', { id: id}]);
+        this.router.navigate(['GroupAttrEdit', { id: id}]);
     }
 
     private navigateBack(){
-        this.router.navigateByUrl('/user');
+        this.router.navigateByUrl('/group');
     }
 
     private getMessage(): string {
-        return 'Доп.атрибуты ' + this.userAttr.userName + ' удалены!';
+        return 'Доп.атрибуты группы ' + this.groupAttr.groupName + ' удалены!';
     }    
 }

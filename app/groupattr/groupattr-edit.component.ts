@@ -4,31 +4,31 @@ import { NgForm, NgClass } from '@angular/common';
 
 import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
-import { User } from './user';
-import { UserService } from './user.service';
+import { GroupAttr } from './groupattr';
+import { GroupAttrService } from './groupattr.service';
 
 @Component({
-    selector: 'user-edit',
-    templateUrl: 'app/user/user-edit.component.html',
+    selector: 'groupattr-edit',
+    templateUrl: 'app/groupattr/groupattr-edit.component.html',
     directives: [
         ROUTER_DIRECTIVES,
         NgClass,
         Toasty        
     ],
-    providers: [ UserService ]   
+    providers: [ GroupAttrService ]   
 })
 
-export class UserEditComponent implements OnInit {
+export class GroupAttrEditComponent implements OnInit {
     
     private editMode:string = 'create';
     private submitted:boolean = false;
     
-    @Input() user: User = new User();
+    @Input() groupAttr: GroupAttr = new GroupAttr();
     errorMessage: any;
     active:boolean = true;   
 
     constructor(        
-        private userService: UserService,
+        private groupAttrService: GroupAttrService,
         private router: Router,
         private routeParams: RouteParams,
         private toastyService: ToastyService
@@ -36,7 +36,7 @@ export class UserEditComponent implements OnInit {
     
     ngOnInit() {
         let id = +this.routeParams.get('id');
-        this.userService.getUser(id).then(user => this.user = user);          
+        this.groupAttrService.getGroupAttr(id).then(groupAttr => this.groupAttr = groupAttr);          
     }
     
     onSubmit(){        
@@ -45,7 +45,7 @@ export class UserEditComponent implements OnInit {
     
     onSave(){        
         this.submitted = true;
-        this.userService.editUser(this.user)
+        this.groupAttrService.editGroupAttr(this.groupAttr)
                         .then(() => this.toastyService
                                         .success({
                                             title: "Сообщение:",
@@ -58,21 +58,15 @@ export class UserEditComponent implements OnInit {
                         .catch(error => this.errorMessage = error);
     }
     
-    clearForm(){        
-        this.user = new User();
-        this.active = false;
-        setTimeout(()=> this.active=true, 0);
-    }
-
     goBack(){
         this.navigateBack();
     }
 
     private navigateBack(){
-        this.router.navigate(['UsersList']);
+        this.router.navigateByUrl('/group');
     }
 
     private getMessage(): string {
-        return 'Данные пользователя ' + this.user.userName + ' успешно обновлены!';
+        return 'Доп.атрибуты группы' + this.groupAttr.groupName + ' обновлены!';
     }
 }

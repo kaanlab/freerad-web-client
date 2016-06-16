@@ -15,6 +15,10 @@ var groups_list_component_1 = require('./groups-list.component');
 var group_detail_component_1 = require('./group-detail.component');
 var group_add_component_1 = require('./group-add.component');
 var group_edit_component_1 = require('./group-edit.component');
+var groupsattr_component_1 = require('../groupattr/groupsattr.component');
+var groupattr_detail_component_1 = require('../groupattr/groupattr-detail.component');
+var groupattr_add_component_1 = require('../groupattr/groupattr-add.component');
+var groupattr_edit_component_1 = require('../groupattr/groupattr-edit.component');
 var GroupsComponent = (function () {
     function GroupsComponent() {
     }
@@ -31,7 +35,11 @@ var GroupsComponent = (function () {
             { path: '/', name: 'GroupsList', component: groups_list_component_1.GroupsListComponent, useAsDefault: true },
             { path: '/:id', name: 'GroupDetail', component: group_detail_component_1.GroupDetailComponent },
             { path: '/add', name: 'GroupAdd', component: group_add_component_1.GroupAddComponent },
-            { path: '/edit/:id', name: 'GroupEdit', component: group_edit_component_1.GroupEditComponent }
+            { path: '/edit/:id', name: 'GroupEdit', component: group_edit_component_1.GroupEditComponent },
+            { path: '/groupattr/...', name: 'GroupsAttr', component: groupsattr_component_1.GroupsAttrComponent },
+            { path: '/groupattr/:id', name: 'GroupAttrDetail', component: groupattr_detail_component_1.GroupAttrDetailComponent },
+            { path: '/groupattr/add', name: 'GroupAttrAdd', component: groupattr_add_component_1.GroupAttrAddComponent },
+            { path: '/groupattr/edit/:id', name: 'GroupAttrEdit', component: groupattr_edit_component_1.GroupAttrEditComponent }
         ]), 
         __metadata('design:paramtypes', [])
     ], GroupsComponent);

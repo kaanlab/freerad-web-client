@@ -3,12 +3,15 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
 
 import { Group } from './group';
 import { GroupService } from './group.service';
-
+import { GroupsAttrListComponent } from '../groupattr/groupsattr-list.component';
 
 @Component({
     selector: 'groups-list',
     templateUrl: 'app/group/groups-list.component.html',
-    directives: [ROUTER_DIRECTIVES],
+    directives: [
+        ROUTER_DIRECTIVES,
+        GroupsAttrListComponent
+    ],
     providers: [GroupService]      
 })
 

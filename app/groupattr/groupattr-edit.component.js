@@ -12,31 +12,31 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
-var userattr_1 = require('./userattr');
-var userattr_service_1 = require('./userattr.service');
-var UserAttrEditComponent = (function () {
-    function UserAttrEditComponent(userAttrService, router, routeParams, toastyService) {
-        this.userAttrService = userAttrService;
+var groupattr_1 = require('./groupattr');
+var groupattr_service_1 = require('./groupattr.service');
+var GroupAttrEditComponent = (function () {
+    function GroupAttrEditComponent(groupAttrService, router, routeParams, toastyService) {
+        this.groupAttrService = groupAttrService;
         this.router = router;
         this.routeParams = routeParams;
         this.toastyService = toastyService;
         this.editMode = 'create';
         this.submitted = false;
-        this.userAttr = new userattr_1.UserAttr();
+        this.groupAttr = new groupattr_1.GroupAttr();
         this.active = true;
     }
-    UserAttrEditComponent.prototype.ngOnInit = function () {
+    GroupAttrEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         var id = +this.routeParams.get('id');
-        this.userAttrService.getUserAttr(id).then(function (userAttr) { return _this.userAttr = userAttr; });
+        this.groupAttrService.getGroupAttr(id).then(function (groupAttr) { return _this.groupAttr = groupAttr; });
     };
-    UserAttrEditComponent.prototype.onSubmit = function () {
+    GroupAttrEditComponent.prototype.onSubmit = function () {
         this.submitted = true;
     };
-    UserAttrEditComponent.prototype.onSave = function () {
+    GroupAttrEditComponent.prototype.onSave = function () {
         var _this = this;
         this.submitted = true;
-        this.userAttrService.editUserAttr(this.userAttr)
+        this.groupAttrService.editGroupAttr(this.groupAttr)
             .then(function () { return _this.toastyService
             .success({
             title: "Сообщение:",
@@ -48,33 +48,33 @@ var UserAttrEditComponent = (function () {
             .then(function () { return _this.goBack(); })
             .catch(function (error) { return _this.errorMessage = error; });
     };
-    UserAttrEditComponent.prototype.goBack = function () {
+    GroupAttrEditComponent.prototype.goBack = function () {
         this.navigateBack();
     };
-    UserAttrEditComponent.prototype.navigateBack = function () {
-        this.router.navigateByUrl('/user');
+    GroupAttrEditComponent.prototype.navigateBack = function () {
+        this.router.navigateByUrl('/group');
     };
-    UserAttrEditComponent.prototype.getMessage = function () {
-        return 'Доп.атрибуты ' + this.userAttr.userName + ' обновлены!';
+    GroupAttrEditComponent.prototype.getMessage = function () {
+        return 'Доп.атрибуты группы' + this.groupAttr.groupName + ' обновлены!';
     };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', userattr_1.UserAttr)
-    ], UserAttrEditComponent.prototype, "userAttr", void 0);
-    UserAttrEditComponent = __decorate([
+        __metadata('design:type', groupattr_1.GroupAttr)
+    ], GroupAttrEditComponent.prototype, "groupAttr", void 0);
+    GroupAttrEditComponent = __decorate([
         core_1.Component({
-            selector: 'userattr-edit',
-            templateUrl: 'app/userattr/userattr-edit.component.html',
+            selector: 'groupattr-edit',
+            templateUrl: 'app/groupattr/groupattr-edit.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
                 common_1.NgClass,
                 ng2_toasty_1.Toasty
             ],
-            providers: [userattr_service_1.UserAttrService]
+            providers: [groupattr_service_1.GroupAttrService]
         }), 
-        __metadata('design:paramtypes', [userattr_service_1.UserAttrService, router_deprecated_1.Router, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService])
-    ], UserAttrEditComponent);
-    return UserAttrEditComponent;
+        __metadata('design:paramtypes', [groupattr_service_1.GroupAttrService, router_deprecated_1.Router, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService])
+    ], GroupAttrEditComponent);
+    return GroupAttrEditComponent;
 }());
-exports.UserAttrEditComponent = UserAttrEditComponent;
-//# sourceMappingURL=userattr-edit.component.js.map
+exports.GroupAttrEditComponent = GroupAttrEditComponent;
+//# sourceMappingURL=groupattr-edit.component.js.map

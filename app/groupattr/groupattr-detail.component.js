@@ -12,25 +12,25 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
-var userattr_1 = require('./userattr');
-var userattr_service_1 = require('./userattr.service');
-var UserAttrDetailComponent = (function () {
-    function UserAttrDetailComponent(userAttrService, routeParams, toastyService, router) {
-        this.userAttrService = userAttrService;
+var groupattr_1 = require('./groupattr');
+var groupattr_service_1 = require('./groupattr.service');
+var GroupAttrDetailComponent = (function () {
+    function GroupAttrDetailComponent(groupAttrService, routeParams, toastyService, router) {
+        this.groupAttrService = groupAttrService;
         this.routeParams = routeParams;
         this.toastyService = toastyService;
         this.router = router;
         this.confirmDelete = false;
-        this.userAttr = new userattr_1.UserAttr();
+        this.groupAttr = new groupattr_1.GroupAttr();
     }
-    UserAttrDetailComponent.prototype.ngOnInit = function () {
+    GroupAttrDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         var id = +this.routeParams.get('id');
-        this.userAttrService.getUserAttr(id).then(function (userAttr) { return _this.userAttr = userAttr; });
+        this.groupAttrService.getGroupAttr(id).then(function (groupAttr) { return _this.groupAttr = groupAttr; });
     };
-    UserAttrDetailComponent.prototype.onDelete = function () {
+    GroupAttrDetailComponent.prototype.onDelete = function () {
         var _this = this;
-        this.userAttrService.deleteUserAttr(this.userAttr)
+        this.groupAttrService.deleteGroupAttr(this.groupAttr)
             .then(function () { return _this.toastyService
             .error({
             title: "Сообщение:",
@@ -42,33 +42,33 @@ var UserAttrDetailComponent = (function () {
             .then(function () { return _this.goBack(); })
             .catch(function (error) { return _this.errorMessage = error; });
     };
-    UserAttrDetailComponent.prototype.goBack = function () {
+    GroupAttrDetailComponent.prototype.goBack = function () {
         this.navigateBack();
     };
-    UserAttrDetailComponent.prototype.onEdit = function () {
+    GroupAttrDetailComponent.prototype.onEdit = function () {
         var id = +this.routeParams.get('id');
-        this.router.navigate(['UserAttrEdit', { id: id }]);
+        this.router.navigate(['GroupAttrEdit', { id: id }]);
     };
-    UserAttrDetailComponent.prototype.navigateBack = function () {
-        this.router.navigateByUrl('/user');
+    GroupAttrDetailComponent.prototype.navigateBack = function () {
+        this.router.navigateByUrl('/group');
     };
-    UserAttrDetailComponent.prototype.getMessage = function () {
-        return 'Доп.атрибуты ' + this.userAttr.userName + ' удалены!';
+    GroupAttrDetailComponent.prototype.getMessage = function () {
+        return 'Доп.атрибуты группы ' + this.groupAttr.groupName + ' удалены!';
     };
-    UserAttrDetailComponent = __decorate([
+    GroupAttrDetailComponent = __decorate([
         core_1.Component({
-            selector: 'userattr-detail',
-            templateUrl: 'app/userattr/userattr-detail.component.html',
+            selector: 'groupattr-detail',
+            templateUrl: 'app/groupattr/groupattr-detail.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
                 common_1.NgClass,
                 ng2_toasty_1.Toasty
             ],
-            providers: [userattr_service_1.UserAttrService]
+            providers: [groupattr_service_1.GroupAttrService]
         }), 
-        __metadata('design:paramtypes', [userattr_service_1.UserAttrService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
-    ], UserAttrDetailComponent);
-    return UserAttrDetailComponent;
+        __metadata('design:paramtypes', [groupattr_service_1.GroupAttrService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
+    ], GroupAttrDetailComponent);
+    return GroupAttrDetailComponent;
 }());
-exports.UserAttrDetailComponent = UserAttrDetailComponent;
-//# sourceMappingURL=userattr-detail.component.js.map
+exports.GroupAttrDetailComponent = GroupAttrDetailComponent;
+//# sourceMappingURL=groupattr-detail.component.js.map

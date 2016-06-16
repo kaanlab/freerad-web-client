@@ -82,6 +82,6 @@ export class UserAttrAddComponent implements OnInit {
     }
 
     private getMessage(): string {
-        return 'Пользователю ' + this.userAttr.userName + ' добавлен дополнительный атибут!';
+        return 'Доп.атрибуты ' + this.userAttr.userName + ' сохранены!';
     }
 }
