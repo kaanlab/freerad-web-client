@@ -4,11 +4,14 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angul
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './user/users.component';
 import { GroupsComponent } from './group/groups.component';
+//import { UsersCountComponent } from './user/users-count.component';
 
 @Component({
     selector: 'my-app',
     templateUrl: 'app/app.component.html',
-    directives: [ROUTER_DIRECTIVES],
+    directives: [
+        ROUTER_DIRECTIVES        
+    ],
     providers: [ROUTER_PROVIDERS]     
 })
 

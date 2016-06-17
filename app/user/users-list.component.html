@@ -1,7 +1,7 @@
 
  <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Пользователи</h1>
+        <h1 class="page-header">Пользователи </h1>
     </div>
     <!-- /.col-lg-12 -->
     <!-- /.row -->
@@ -9,8 +9,7 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                     Список пользователей                    
-                     <span>&nbsp;</span>
+                     <h3><span class="label label-info">Список пользователей</span></h3>                    
                      <button class="btn btn-default" (click)="goToNewUser()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
                  </div>
                  <!-- /.panel-heading -->
@@ -21,7 +20,10 @@
                       </div>
                       <ul class="list-group">
                          <a href="" [routerLink]="['UserDetail', {id: user.id}]" *ngFor="let user of users" class="list-group-item">
-                            <span><i class="fa fa-user fa-lg"></i></span>
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-square-o fa-stack-2x"></i>
+                                <i class="fa fa-user fa-stack-1x"></i>
+                            </span>
                             <span> - {{ user.userName }}</span>
                          </a>
                       </ul>

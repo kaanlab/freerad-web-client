@@ -1,25 +1,26 @@
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                     Доп.атрибуты пользователей                    
-                     <span>&nbsp;</span>
-                     <button class="btn btn-default" (click)="goToNewUserAttr()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
-                 </div>
-                 <!-- /.panel-heading -->
-                 <div class="panel-body">
-                      <div class="col-sm-offset-4 col-sm-10" [hidden]="!loading">
-                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-                            <span class="sr-only">Loading...</span>
-                      </div>
-                      <ul class="list-group">
-                         <a href="" [routerLink]="['UserAttrDetail', {id: userAttr.id}]" *ngFor="let userAttr of userAttrs" class="list-group-item">
-                            <span><i class="fa fa-user-plus fa-lg"></i></span>
-                            <span> - {{ userAttr.userName }}</span>
-                         </a>
-                      </ul>
-                 </div>
-             </div>
+<div class="col-lg-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+             <h3><span class="label label-info">Доп.атрибуты</span></h3>                    
+             <button class="btn btn-default" (click)="goToNewUserAttr()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
          </div>
-    </div>
+         <!-- /.panel-heading -->
+         <div class="panel-body">
+              <div class="col-sm-offset-4 col-sm-10" [hidden]="!loading">
+                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                    <span class="sr-only">Loading...</span>
+              </div>
+              <ul class="list-group">
+                 <a href="" [routerLink]="['UserAttrDetail', {id: userAttr.id}]" *ngFor="let userAttr of userAttrs" class="list-group-item">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span> - {{ userAttr.userName }}</span>
+                 </a>
+              </ul>
+         </div>
+     </div>
+ </div>
+    
 

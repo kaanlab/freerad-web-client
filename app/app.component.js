@@ -13,6 +13,7 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var users_component_1 = require('./user/users.component');
 var groups_component_1 = require('./group/groups.component');
+//import { UsersCountComponent } from './user/users-count.component';
 var AppComponent = (function () {
     function AppComponent(router) {
         this.router = router;
@@ -25,7 +26,9 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [
+                router_deprecated_1.ROUTER_DIRECTIVES
+            ],
             providers: [router_deprecated_1.ROUTER_PROVIDERS]
         }),
         router_deprecated_1.RouteConfig([

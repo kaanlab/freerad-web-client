@@ -6,11 +6,10 @@
     <!-- /.col-lg-12 -->
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                     Список групп                    
-                     <span>&nbsp;</span>
+                     <h3><span class="label label-primary">Список групп</span></h3>                    
                      <button class="btn btn-default" (click)="goToNewGroup()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
                  </div>
                  <!-- /.panel-heading -->
@@ -21,7 +20,10 @@
                       </div>
                       <ul class="list-group">
                          <a href="" [routerLink]="['GroupDetail', {id: group.id}]" *ngFor="let group of groups" class="list-group-item">
-                            <span><i class="fa fa-users fa-lg"></i></span>
+                            <span class="fa-stack fa-lg">
+                               <i class="fa fa-square-o fa-stack-2x"></i>
+                               <i class="fa fa-users fa-stack-1x"></i>
+                            </span>
                             <span> - {{ group.groupName }}</span>
                          </a>
                       </ul>
