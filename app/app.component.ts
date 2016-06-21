@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angular/router-deprecated';
+import { Title } from '@angular/platform-browser';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './user/users.component';
@@ -23,10 +24,17 @@ import { GroupsComponent } from './group/groups.component';
 
 export class AppComponent {
    
-   constructor (private router: Router) { }
+   constructor (
+       private router: Router,
+       private title: Title
+   ) { }
    
    isCurrentRoute(route){
         var instruction = this.router.generate(route);
         return this.router.isRouteActive(instruction);
+    }
+
+    setTitle(newTitle: string) {
+        this.title.setTitle(newTitle);
     }
 }

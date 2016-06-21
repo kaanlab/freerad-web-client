@@ -19,6 +19,10 @@ var usersattr_component_1 = require('../userattr/usersattr.component');
 var userattr_detail_component_1 = require('../userattr/userattr-detail.component');
 var userattr_add_component_1 = require('../userattr/userattr-add.component');
 var userattr_edit_component_1 = require('../userattr/userattr-edit.component');
+var usersingroup_component_1 = require('../useringroup/usersingroup.component');
+var useringroup_detail_component_1 = require('../useringroup/useringroup-detail.component');
+var useringroup_add_component_1 = require('../useringroup/useringroup-add.component');
+var useringroup_edit_component_1 = require('../useringroup/useringroup-edit.component');
 var UsersComponent = (function () {
     function UsersComponent() {
     }
@@ -39,7 +43,11 @@ var UsersComponent = (function () {
             { path: '/userattr/...', name: 'UsersAttr', component: usersattr_component_1.UsersAttrComponent },
             { path: '/userattr/:id', name: 'UserAttrDetail', component: userattr_detail_component_1.UserAttrDetailComponent },
             { path: '/userattr/add', name: 'UserAttrAdd', component: userattr_add_component_1.UserAttrAddComponent },
-            { path: '/userattr/edit/:id', name: 'UserAttrEdit', component: userattr_edit_component_1.UserAttrEditComponent }
+            { path: '/userattr/edit/:id', name: 'UserAttrEdit', component: userattr_edit_component_1.UserAttrEditComponent },
+            { path: '/group/...', name: 'UsersInGroup', component: usersingroup_component_1.UsersInGroupComponent },
+            { path: '/group/:id', name: 'UserInGroupDetail', component: useringroup_detail_component_1.UserInGroupDetailComponent },
+            { path: '/group/add', name: 'UserInGroupAdd', component: useringroup_add_component_1.UserInGroupAddComponent },
+            { path: '/group/edit/:id', name: 'UseInGroupEdit', component: useringroup_edit_component_1.UserInGroupEditComponent }
         ]), 
         __metadata('design:paramtypes', [])
     ], UsersComponent);

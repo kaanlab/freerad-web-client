@@ -10,17 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var platform_browser_1 = require('@angular/platform-browser');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var users_component_1 = require('./user/users.component');
 var groups_component_1 = require('./group/groups.component');
 //import { UsersCountComponent } from './user/users-count.component';
 var AppComponent = (function () {
-    function AppComponent(router) {
+    function AppComponent(router, title) {
         this.router = router;
+        this.title = title;
     }
     AppComponent.prototype.isCurrentRoute = function (route) {
         var instruction = this.router.generate(route);
         return this.router.isRouteActive(instruction);
+    };
+    AppComponent.prototype.setTitle = function (newTitle) {
+        this.title.setTitle(newTitle);
     };
     AppComponent = __decorate([
         core_1.Component({
@@ -36,7 +41,7 @@ var AppComponent = (function () {
             { path: '/user/...', name: 'Users', component: users_component_1.UsersComponent },
             { path: '/group/...', name: 'Groups', component: groups_component_1.GroupsComponent }
         ]), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, platform_browser_1.Title])
     ], AppComponent);
     return AppComponent;
 }());

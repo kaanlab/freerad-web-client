@@ -1,7 +1,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Новый пользователь</h1>
+        <h1 class="page-header">Добавить пользователя в группу</h1>
  </div>
     <!-- /.col-lg-12 -->
     <!-- /.row -->
@@ -9,42 +9,40 @@
         <div class="col-lg-6">
             <div class="panel" [ngClass]="submitted? 'panel-success' : 'panel-default'">
                 <div class="panel-heading">                    
-                     <span [hidden]="!submitted">Сохранить пользователя {{user.userName}}?</span>
+                     <span [hidden]="!submitted">Сохранить пользователя {{ userInGroup.userName }} в группе {{ userInGroup.groupName }}?</span>
                      <span>&nbsp;</span> 
                      <span [hidden]="submitted"><button class="btn btn-default" (click)="goBack()"><i class="fa fa-arrow-circle-left fa-lg"></i></button></span>
                 </div>
                  <!-- /.panel-heading -->
                 <div class="panel-body">
                    <div [hidden]="submitted">
-                     <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #userAdd="ngForm">
+                     <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #userInGroupAdd="ngForm">
                       <div class="form-group">
                           <label for="userName" class="col-sm-2 control-label">Пользователь</label>
                           <div class="col-sm-10">
-                              <input id="userName" class="form-control" formControl="userName" [(ngModel)]="user.userName" #userName="ngForm" required minlength="3" maxlength="64" placeholder="Jon">             
+                              <select id="userName" class="form-control" formControl="userName" [(ngModel)]="userInGroup.userName" #userName="ngForm" required minlength="3" maxlength="64" placeholder="Выберете пользователя...">
+                                <option *ngFor="let user of users" [value]="user.userName">{{ user.userName }}</option>
+                              </select>             
                           </div>
                       </div>
                       <div class="form-group">
-                          <label for="attribute" class="col-sm-2 control-label">Атрибут</label>
+                          <label for="userName" class="col-sm-2 control-label">Группа</label>
                           <div class="col-sm-10">
-                              <input id="attribute" class="form-control" formControl="attribute" [(ngModel)]="user.attribute" #attribute="ngForm" required minlength="5" maxlength="64" placeholder="Cleartext-Password">
+                              <select id="groupName" class="form-control" formControl="groupName" [(ngModel)]="userInGroup.groupName" #groupName="ngForm" required minlength="3" maxlength="64" placeholder="Выберете группу...">
+                                <option *ngFor="let group of groups" [value]="group.groupName">{{ group.groupName }}</option>
+                              </select>             
                           </div>
                       </div>
                       <div class="form-group">
-                          <label for="op" class="col-sm-2 control-label">Оператор</label>
+                          <label for="attribute" class="col-sm-2 control-label">Приоритет</label>
                           <div class="col-sm-10">
-                              <input id="op" class="form-control" formControl="op" [(ngModel)]="user.op" #op="ngForm" required minlength="1" maxlength="2" placeholder=":=">
+                              <input id="priority" class="form-control" formControl="priority" [(ngModel)]="userInGroup.priority" #priority="ngForm" required placeholder="1">
                           </div>
                       </div>
-                      <div class="form-group">
-                          <label for="value" class="col-sm-2 control-label">Значение</label>
-                          <div class="col-sm-10">
-                              <input id="value" class="form-control" formControl="value" [(ngModel)]="user.value" #value="ngForm" required minlength="6" maxlength="253" placeholder="mypassword">
-                          </div>
-                      </div>  
                       <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
                               <span><button type="button" class="btn btn-default" (click)="clearForm()"><i class="fa fa-eraser fa-lg"></i> очистить</button></span>                   
-                              <span><button type="submit" class="btn btn-default pull-right"  [disabled]="!userAdd.form.valid"><i class="fa fa-save fa-lg"></i> сохранить</button></span>
+                              <span><button type="submit" class="btn btn-default pull-right"  [disabled]="!userInGroupAdd.form.valid"><i class="fa fa-save fa-lg"></i> сохранить</button></span>
                           </div>
                       </div>
                   </form>
@@ -55,27 +53,21 @@
                       <div class="form-group">
                           <label class="col-sm-2 control-label">Пользователь</label>
                           <div class="col-sm-10">
-                              <input class="form-control" placeholder="{{ user.userName }}" readonly>            
+                              <input class="form-control" placeholder="{{ userInGroup.userName }}" readonly>            
                           </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-sm-2 control-label">Атрибут</label>
+                          <label class="col-sm-2 control-label">Группа</label>
                           <div class="col-sm-10">
-                              <input class="form-control" placeholder="{{ user.attribute }}" readonly>             
+                              <input class="form-control" placeholder="{{ userInGroup.groupName }}" readonly>             
                           </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-sm-2 control-label">Оператор</label>
+                          <label class="col-sm-2 control-label">Приоритет</label>
                           <div class="col-sm-10">
-                              <input class="form-control" placeholder="{{ user.op }}" readonly>     
+                              <input class="form-control" placeholder="{{ userInGroup.priority }}" readonly>     
                           </div>
                       </div>
-                      <div class="form-group">
-                          <label class="col-sm-2 control-label">Значение</label>
-                          <div class="col-sm-10">
-                              <input class="form-control" placeholder="{{ user.value }}" readonly>       
-                          </div>
-                      </div>                     
                       <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
                               <span><button type="button" class="btn btn-default" (click)="submitted=false"><i class="fa fa-edit fa-lg"></i> редактрировать</button></span>

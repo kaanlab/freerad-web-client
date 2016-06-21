@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var user_service_1 = require('./user.service');
 var usersattr_list_component_1 = require('../userattr/usersattr-list.component');
+var usersingroup_list_component_1 = require('../useringroup/usersingroup-list.component');
 var UsersListComponent = (function () {
     function UsersListComponent(router, userService) {
         this.router = router;
@@ -37,7 +38,8 @@ var UsersListComponent = (function () {
             templateUrl: 'app/user/users-list.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
-                usersattr_list_component_1.UsersAttrListComponent
+                usersattr_list_component_1.UsersAttrListComponent,
+                usersingroup_list_component_1.UsersInGroupListComponent
             ],
             providers: [user_service_1.UserService]
         }), 

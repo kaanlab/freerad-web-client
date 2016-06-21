@@ -1,0 +1,82 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Редактирование пользователя {{ userInGroup.userName }}</h1>
+ </div>
+    <!-- /.col-lg-12 -->
+    <!-- /.row -->
+  <div class="row">
+        <div class="col-lg-6">
+            <div class="panel" [ngClass]="submitted? 'panel-success' : 'panel-default'">
+                <div class="panel-heading">                    
+                     <span [hidden]="!submitted">Сохранить изменения для пользователя {{ userInGroup.userName }} в группе {{ userInGroup.groupName }}?</span>
+                     <span>&nbsp;</span> 
+                     <span [hidden]="submitted"><button class="btn btn-default" (click)="goBack()"><i class="fa fa-arrow-circle-left fa-lg"></i></button></span>
+                </div>
+                 <!-- /.panel-heading -->
+                <div class="panel-body">
+                   <div [hidden]="submitted">
+                     <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #userInGroupEdit="ngForm">
+                      <div class="form-group">
+                          <label for="userName" class="col-sm-2 control-label">Пользователь</label>
+                          <div class="col-sm-10">
+                              <input id="userName" class="form-control" formControl="userName" [(ngModel)]="userInGroup.userName" #userName="ngForm" readonly>             
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="userName" class="col-sm-2 control-label">Группа</label>
+                          <div class="col-sm-10">
+                              <select id="groupName" class="form-control" formControl="groupName" [(ngModel)]="userInGroup.groupName" #groupName="ngForm" required minlength="3" maxlength="64" placeholder="Выберете группу...">
+                                <option *ngFor="let group of groups" [value]="group.groupName">{{ group.groupName }}</option>
+                              </select>             
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="op" class="col-sm-2 control-label">Приоритет</label>
+                          <div class="col-sm-10">
+                              <input id="op" class="form-control" formControl="op" [(ngModel)]="userInGroup.priority" #op="ngForm" required minlength="1" maxlength="2" placeholder=":=">
+                          </div>
+                      </div>                    
+                      <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                              <span><button type="submit" class="btn btn-default pull-right"  [disabled]="!userInGroupEdit.form.valid"><i class="fa fa-save fa-lg"></i> сохранить</button></span>
+                          </div>
+                      </div>
+                  </form>
+               </div>
+
+         <div [hidden]="!submitted">
+             <form class="form-horizontal">
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Пользователь</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ userInGroup.userName }}" readonly>            
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Группа</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ userInGroup.groupName }}" readonly>             
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Приоритет</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ userInGroup.priority }}" readonly>     
+                          </div>
+                      </div>                                          
+                      <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                              <span><button type="button" class="btn btn-default" (click)="submitted=false"><i class="fa fa-edit fa-lg"></i> редактрировать</button></span>
+                              <span><button type="button" class="btn btn-success pull-right" (click)="onSave()"><i class="fa fa-save fa-lg"></i> сохранить</button></span>                              
+                          </div>
+                      </div>
+                  </form>             
+              </div>
+           </div>
+        </div>
+     </div>
+   </div>
+</div>
+
+

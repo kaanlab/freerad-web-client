@@ -4,13 +4,15 @@ import { ROUTER_DIRECTIVES, Router, RouteConfig } from '@angular/router-deprecat
 import { User } from './user';
 import { UserService } from './user.service';
 import { UsersAttrListComponent } from '../userattr/usersattr-list.component';
+import { UsersInGroupListComponent } from '../useringroup/usersingroup-list.component';
 
 @Component({
     selector: 'users-list',
     templateUrl: 'app/user/users-list.component.html',
     directives: [
         ROUTER_DIRECTIVES, 
-        UsersAttrListComponent
+        UsersAttrListComponent,
+        UsersInGroupListComponent
     ],
     providers: [UserService]      
 })

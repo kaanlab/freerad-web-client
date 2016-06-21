@@ -20,25 +20,25 @@
                       <div class="form-group">
                           <label for="groupName" class="col-sm-2 control-label">Группа</label>
                           <div class="col-sm-10">
-                              <input id="groupName" class="form-control" ngControl="groupName" [(ngModel)]="group.groupName" #groupName="ngForm" required minlength="3" maxlength="64" placeholder="NewGroup">             
+                              <input id="groupName" class="form-control" formControl="groupName" [(ngModel)]="group.groupName" #groupName="ngForm" required minlength="3" maxlength="64" placeholder="NewGroup">             
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="attribute" class="col-sm-2 control-label">Атрибут</label>
                           <div class="col-sm-10">
-                              <input id="attribute" class="form-control" ngControl="attribute" [(ngModel)]="group.attribute" #attribute="ngForm" required minlength="5" maxlength="64" placeholder="Simultaneous-Use">
+                              <input id="attribute" class="form-control" formControl="attribute" [(ngModel)]="group.attribute" #attribute="ngForm" required minlength="5" maxlength="64" placeholder="Simultaneous-Use">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="op" class="col-sm-2 control-label">Оператор</label>
                           <div class="col-sm-10">
-                              <input id="op" class="form-control" ngControl="op" [(ngModel)]="group.op" #op="ngForm" required minlength="1" maxlength="2" placeholder=":=">
+                              <input id="op" class="form-control" formControl="op" [(ngModel)]="group.op" #op="ngForm" required minlength="1" maxlength="2" placeholder=":=">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="value" class="col-sm-2 control-label">Значение</label>
                           <div class="col-sm-10">
-                              <input id="value" class="form-control" ngControl="value" [(ngModel)]="group.value" #value="ngForm" required minlength="1" maxlength="253" placeholder="1">
+                              <input id="value" class="form-control" formControl="value" [(ngModel)]="group.value" #value="ngForm" required minlength="1" maxlength="253" placeholder="1">
                           </div>
                       </div>  
                       <div class="form-group">
