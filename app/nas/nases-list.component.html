@@ -1,7 +1,7 @@
 
  <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Группы</h1>
+        <h1 class="page-header">Сетевые устройства</h1>
     </div>
     <!-- /.col-lg-12 -->
     <!-- /.row -->
@@ -9,8 +9,8 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                     <h3><span class="label label-primary">Список групп</span></h3>                    
-                     <button class="btn btn-default" (click)="goToNewGroup()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
+                     <h3><span class="label label-info">Список устройств</span></h3>                    
+                     <button class="btn btn-default" (click)="goToNewNas()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
                  </div>
                  <!-- /.panel-heading -->
                  <div class="panel-body">
@@ -19,17 +19,16 @@
                             <span class="sr-only">Loading...</span>
                       </div>
                       <ul class="list-group">
-                         <a href="" [routerLink]="['GroupDetail', {id: group.id}]" *ngFor="let group of groups" class="list-group-item">
+                         <a href="" [routerLink]="['NasDetail', {id: nas.id}]" *ngFor="let nas of nases" class="list-group-item">
                             <span class="fa-stack fa-lg">
-                               <i class="fa fa-square-o fa-stack-2x"></i>
-                               <i class="fa fa-users fa-stack-1x"></i>
+                                <i class="fa fa-square-o fa-stack-2x"></i>
+                                <i class="fa fa-wifi fa-stack-1x"></i>
                             </span>
-                            <span class="label label-default">{{ group.groupName }}</span> | {{ group.description }}
+                            <span class="label label-default">{{ nas.nasName }}</span> | {{ nas.description }}
                          </a>
                       </ul>
                  </div>
              </div>
-         </div>
-         <groupsattr-list></groupsattr-list> 
-    </div>
+         </div>                        
+     </div>
 </div>

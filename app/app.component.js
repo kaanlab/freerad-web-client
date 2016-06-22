@@ -14,7 +14,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var users_component_1 = require('./user/users.component');
 var groups_component_1 = require('./group/groups.component');
-//import { UsersCountComponent } from './user/users-count.component';
+var nases_component_1 = require('./nas/nases.component');
 var AppComponent = (function () {
     function AppComponent(router, title) {
         this.router = router;
@@ -39,7 +39,8 @@ var AppComponent = (function () {
         router_deprecated_1.RouteConfig([
             { path: '/dashborard', name: 'Dashboard', component: dashboard_component_1.DashboardComponent, useAsDefault: true },
             { path: '/user/...', name: 'Users', component: users_component_1.UsersComponent },
-            { path: '/group/...', name: 'Groups', component: groups_component_1.GroupsComponent }
+            { path: '/group/...', name: 'Groups', component: groups_component_1.GroupsComponent },
+            { path: '/nas/...', name: 'Nases', component: nases_component_1.NasesComponent }
         ]), 
         __metadata('design:paramtypes', [router_deprecated_1.Router, platform_browser_1.Title])
     ], AppComponent);

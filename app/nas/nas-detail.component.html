@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Данные группы {{ group.groupName }}</h1>
+        <h1 class="page-header">Сведения о сетевом устройстве {{ nas.nasName }}</h1>
  </div>
     <!-- /.col-lg-12 -->
     <!-- /.row -->
@@ -8,7 +8,7 @@
         <div class="col-lg-6">
             <div class="panel" [ngClass]="confirmDelete? 'panel-danger' : 'panel-default'">
                 <div class="panel-heading">                    
-                     <span [hidden]="!confirmDelete"> Подтвердите удаление группы {{ group.groupName }}! </span>
+                     <span [hidden]="!confirmDelete"> Подтвердите удаление сетевого устройства {{ nas.nasName }}! </span>
                      <span>&nbsp;</span> 
                      <span [hidden]="confirmDelete"><button class="btn btn-default" (click)="goBack()"><i class="fa fa-arrow-circle-left fa-lg"></i></button></span>
                 </div>
@@ -17,33 +17,45 @@
                 
                 <form class="form-horizontal">
                       <div class="form-group">
-                          <label class="col-sm-2 control-label">Группа</label>
+                          <label class="col-sm-2 control-label">Название</label>
                           <div class="col-sm-10">
-                              <input class="form-control" placeholder="{{ group.groupName }}" readonly>            
+                              <input class="form-control" placeholder="{{ nas.nasName }}" readonly>            
                           </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-sm-2 control-label">Атрибут</label>
+                          <label class="col-sm-2 control-label">Сокр.</label>
                           <div class="col-sm-10">
-                              <input class="form-control" placeholder="{{ group.attribute }}" readonly>             
+                              <input class="form-control" placeholder="{{ nas.shortName }}" readonly>             
                           </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-sm-2 control-label">Оператор</label>
+                          <label class="col-sm-2 control-label">Тип</label>
                           <div class="col-sm-10">
-                              <input class="form-control" placeholder="{{ group.op }}" readonly>     
+                              <input class="form-control" placeholder="{{ nas.type }}" readonly>     
                           </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-sm-2 control-label">Значение</label>
+                          <label class="col-sm-2 control-label">Порты</label>
                           <div class="col-sm-10">
-                              <input class="form-control" placeholder="{{ group.value }}" readonly>       
+                              <input class="form-control" placeholder="{{ nas.ports }}" readonly>       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Пароль</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.secret }}" readonly>       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Строка</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.community }}" readonly>       
                           </div>
                       </div>
                       <div class="form-group">
                           <label class="col-sm-2 control-label">Описание</label>
                           <div class="col-sm-10">
-                              <textarea rows="2" class="form-control" placeholder="{{ group.description }}" readonly></textarea>       
+                              <textarea rows="2" class="form-control" placeholder="{{ nas.description }}" readonly></textarea>       
                           </div>
                       </div>                     
                       <div class="form-group" [hidden]="confirmDelete">
@@ -63,5 +75,5 @@
              </div>
          </div>
      </div>
- </div>
+   </div>
 </div>

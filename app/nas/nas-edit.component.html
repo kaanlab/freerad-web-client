@@ -1,0 +1,128 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Редактирование данных пользователя {{ nas.nasName }}</h1>
+ </div>
+    <!-- /.col-lg-12 -->
+    <!-- /.row -->
+ <div class="row">
+      <div class="col-lg-6">
+           <div class="panel" [ngClass]="submitted? 'panel-success' : 'panel-default'">
+                <div class="panel-heading">                    
+                     <span [hidden]="!submitted">Сохранить изменения {{ nas.nasName }}?</span>
+                     <span>&nbsp;</span> 
+                     <span [hidden]="submitted"><button class="btn btn-default" (click)="goBack()"><i class="fa fa-arrow-circle-left fa-lg"></i></button></span>
+                </div>
+                 <!-- /.panel-heading -->
+                <div class="panel-body">
+                   <div [hidden]="submitted">
+                     <form class="form-horizontal" *ngIf="active" (ngSubmit)="onSubmit()"  #nasEdit="ngForm">
+                      <div class="form-group">
+                          <label for="nasName" class="col-sm-2 control-label">Название</label>
+                          <div class="col-sm-10">
+                              <input id="nasName" class="form-control" formControl="nasName" [(ngModel)]="nas.nasName" #nasName="ngForm" required minlength="3" maxlength="128" placeholder="switch-192-168-10-1">             
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="shortName" class="col-sm-2 control-label">Сокр.</label>
+                          <div class="col-sm-10">
+                              <input id="shortName" class="form-control" formControl="shortName" [(ngModel)]="nas.shortName" #shortName="ngForm" minlength="3" maxlength="32" placeholder="sw-01">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="type" class="col-sm-2 control-label">Тип</label>
+                          <div class="col-sm-10">
+                              <input id="type" class="form-control" formControl="type" [(ngModel)]="nas.type" #type="ngForm" minlength="1" maxlength="30" placeholder="">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="ports" class="col-sm-2 control-label">Порты</label>
+                          <div class="col-sm-10">
+                              <input id="ports" class="form-control" formControl="ports" [(ngModel)]="nas.ports" #ports="ngForm" maxlength="253" placeholder="1024">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="secret" class="col-sm-2 control-label">Пароль</label>
+                          <div class="col-sm-10">
+                              <input id="secret" class="form-control" formControl="secret" [(ngModel)]="nas.secret" #secret="ngForm" required minlength="5" maxlength="60" placeholder="pa$$w0rd">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="community" class="col-sm-2 control-label">Строка</label>
+                          <div class="col-sm-10">
+                              <input id="community" class="form-control" formControl="community" [(ngModel)]="nas.community" #community="ngForm" maxlength="253" placeholder="public">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="description" class="col-sm-2 control-label">Описание</label>
+                          <div class="col-sm-10">
+                              <textarea rows="2" id="description" class="form-control" formControl="description" [(ngModel)]="nas.description" #description="ngForm" maxlength="200" placeholder="Switch on second floore"></textarea>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                              <span><button type="button" class="btn btn-default" (click)="clearForm()"><i class="fa fa-eraser fa-lg"></i> очистить</button></span>                   
+                              <span><button type="submit" class="btn btn-default pull-right"  [disabled]="!nasEdit.form.valid"><i class="fa fa-save fa-lg"></i> сохранить</button></span>
+                          </div>
+                      </div>
+                  </form>
+               </div>
+
+         <div [hidden]="!submitted">
+             <form class="form-horizontal">
+                     <div class="form-group">
+                          <label class="col-sm-2 control-label">Название</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.nasName }}" readonly>            
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Сокращение</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.shortName }}" readonly>             
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Тип</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.type }}" readonly>     
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Порты</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.ports }}" readonly>       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Пароль</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.secret }}" readonly>       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Строка</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.community }}" readonly>       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Описание</label>
+                          <div class="col-sm-10">
+                              <textarea rows="2" class="form-control" placeholder="{{ nas.description }}" readonly></textarea>       
+                          </div>
+                      </div>                      
+                      <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                              <span><button type="button" class="btn btn-default" (click)="submitted=false"><i class="fa fa-edit fa-lg"></i> редактрировать</button></span>
+                              <span><button type="button" class="btn btn-success pull-right" (click)="onSave()"><i class="fa fa-save fa-lg"></i> сохранить</button></span>                              
+                          </div>
+                      </div>
+                  </form>             
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+

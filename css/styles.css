@@ -11,3 +11,8 @@
     color: white;
 }
 
+#labelForLogin {
+    display: block;
+    margin-bottom: 10px; /** Change this value to whatever you wish **/
+}
+

@@ -34,12 +34,13 @@
                         <!-- /input-group -->
                      </li>
                      <li [class.active]="isCurrentRoute(['Users'])">
-                         <a (click)="setTitle('Пользователи :: FreeRadius Web Client')" href="" [routerLink]="['Users']"><i class="fa fa-user fa-fw"></i> 
-                            Пользователи                           
-                         </a>
+                         <a (click)="setTitle('Пользователи :: FreeRadius Web Client')" href="" [routerLink]="['Users']"><i class="fa fa-user fa-fw"></i>Пользователи</a>
                      </li>
                      <li [class.active]="isCurrentRoute(['Groups'])">
                          <a (click)="setTitle('Группы :: FreeRadius Web Client')"href="" [routerLink]="['Groups']"><i class="fa fa-group fa-fw"></i> Группы</a>
+                     </li>
+                     <li [class.active]="isCurrentRoute(['Nases'])">
+                         <a (click)="setTitle('Устройства :: FreeRadius Web Client')"href="" [routerLink]="['Nases']"><i class="fa fa-wifi fa-fw"></i> Устройства</a>
                      </li>
                    </ul>
                </div>

@@ -5,7 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './user/users.component';
 import { GroupsComponent } from './group/groups.component';
-//import { UsersCountComponent } from './user/users-count.component';
+import { NasesComponent } from './nas/nases.component';
 
 @Component({
     selector: 'my-app',
@@ -19,7 +19,8 @@ import { GroupsComponent } from './group/groups.component';
 @RouteConfig([
     { path: '/dashborard', name: 'Dashboard', component: DashboardComponent, useAsDefault: true },
     { path: '/user/...', name: 'Users', component: UsersComponent }, 
-    { path: '/group/...', name: 'Groups', component: GroupsComponent }    
+    { path: '/group/...', name: 'Groups', component: GroupsComponent },
+    { path: '/nas/...', name: 'Nases', component: NasesComponent }    
 ])
 
 export class AppComponent {
