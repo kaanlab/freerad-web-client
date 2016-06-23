@@ -57,7 +57,7 @@ var NasAddComponent = (function () {
         this.router.navigate(['NasesList']);
     };
     NasAddComponent.prototype.getMessage = function () {
-        return 'Пользователь ' + this.nas.nasName + ' сохранен!';
+        return 'Устройство ' + this.nas.shortName + ' успешно создано!';
     };
     NasAddComponent = __decorate([
         core_1.Component({

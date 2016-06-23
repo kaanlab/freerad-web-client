@@ -61,7 +61,7 @@ var NasEditComponent = (function () {
         this.router.navigate(['NasesList']);
     };
     NasEditComponent.prototype.getMessage = function () {
-        return 'Данные пользователя ' + this.nas.nasName + ' успешно обновлены!';
+        return 'Данные об устройстве ' + this.nas.shortName + ' успешно обновлены!';
     };
     __decorate([
         core_1.Input(), 

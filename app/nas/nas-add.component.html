@@ -9,7 +9,7 @@
         <div class="col-lg-6">
             <div class="panel" [ngClass]="submitted? 'panel-success' : 'panel-default'">
                 <div class="panel-heading">                    
-                     <span [hidden]="!submitted">Сохранить устройство {{ nas.nasName }}?</span>
+                     <span [hidden]="!submitted">Сохранить устройство {{ nas.shortName }}?</span>
                      <span>&nbsp;</span> 
                      <span [hidden]="submitted"><button class="btn btn-default" (click)="goBack()"><i class="fa fa-arrow-circle-left fa-lg"></i></button></span>
                 </div>
@@ -20,19 +20,19 @@
                       <div class="form-group">
                           <label for="nasName" class="col-sm-2 control-label">Название</label>
                           <div class="col-sm-10">
-                              <input id="nasName" class="form-control" formControl="nasName" [(ngModel)]="nas.nasName" #nasName="ngForm" required minlength="3" maxlength="128" placeholder="switch-192-168-10-1">             
+                              <input id="nasName" class="form-control" formControl="nasName" [(ngModel)]="nas.nasName" #nasName="ngForm" required minlength="9" maxlength="128" placeholder="192.168.123.4">             
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="shortName" class="col-sm-2 control-label">Сокр.</label>
                           <div class="col-sm-10">
-                              <input id="shortName" class="form-control" formControl="shortName" [(ngModel)]="nas.shortName" #shortName="ngForm" minlength="3" maxlength="32" placeholder="sw-01">
+                              <input id="shortName" class="form-control" formControl="shortName" [(ngModel)]="nas.shortName" #shortName="ngForm" required minlength="3" maxlength="32" placeholder="AP01">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="type" class="col-sm-2 control-label">Тип</label>
                           <div class="col-sm-10">
-                              <input id="type" class="form-control" formControl="type" [(ngModel)]="nas.type" #type="ngForm" minlength="1" maxlength="30" placeholder="">
+                              <input id="type" class="form-control" formControl="type" [(ngModel)]="nas.type" #type="ngForm" minlength="1" maxlength="30" placeholder="other">
                           </div>
                       </div>
                       <div class="form-group">
@@ -42,9 +42,15 @@
                           </div>
                       </div>
                       <div class="form-group">
-                          <label for="secret" class="col-sm-2 control-label">Пароль</label>
+                          <label for="secret" class="col-sm-2 control-label">Секрет</label>
                           <div class="col-sm-10">
-                              <input id="secret" class="form-control" formControl="secret" [(ngModel)]="nas.secret" #secret="ngForm" required minlength="5" maxlength="60" placeholder="pa$$w0rd">
+                              <input id="secret" class="form-control" formControl="secret" [(ngModel)]="nas.secret" #secret="ngForm" required minlength="5" maxlength="60" placeholder="mysecret">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="server" class="col-sm-2 control-label">Сервер</label>
+                          <div class="col-sm-10">
+                              <input id="server" class="form-control" formControl="server" [(ngModel)]="nas.server" #server="ngForm" maxlength="64" placeholder="">
                           </div>
                       </div>
                       <div class="form-group">
@@ -56,7 +62,7 @@
                       <div class="form-group">
                           <label for="description" class="col-sm-2 control-label">Описание</label>
                           <div class="col-sm-10">
-                              <textarea rows="2" id="description" class="form-control" formControl="description" [(ngModel)]="nas.description" #description="ngForm" maxlength="200" placeholder="Switch on second floore"></textarea>
+                              <textarea rows="2" id="description" class="form-control" formControl="description" [(ngModel)]="nas.description" #description="ngForm" required maxlength="200" placeholder="Radius client switch"></textarea>
                           </div>
                       </div>  
                       <div class="form-group">
@@ -95,9 +101,15 @@
                           </div>
                       </div>
                       <div class="form-group">
-                          <label class="col-sm-2 control-label">Пароль</label>
+                          <label class="col-sm-2 control-label">Секрет</label>
                           <div class="col-sm-10">
                               <input class="form-control" placeholder="{{ nas.secret }}" readonly>       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-2 control-label">Сервер</label>
+                          <div class="col-sm-10">
+                              <input class="form-control" placeholder="{{ nas.server }}" readonly>       
                           </div>
                       </div>
                       <div class="form-group">

@@ -73,6 +73,6 @@ export class NasEditComponent implements OnInit {
     }
 
     private getMessage(): string {
-        return 'Данные пользователя ' + this.nas.nasName + ' успешно обновлены!';
+        return 'Данные об устройстве ' + this.nas.shortName + ' успешно обновлены!';
     }
 }

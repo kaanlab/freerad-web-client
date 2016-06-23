@@ -9,7 +9,7 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                     <h3><span class="label label-info">Список устройств</span></h3>                    
+                     <h3><span class="label label-warning">Список устройств</span></h3>                    
                      <button class="btn btn-default" (click)="goToNewNas()"><i class="fa fa-pencil fa-lg"> создать</i></button>                     
                  </div>
                  <!-- /.panel-heading -->
@@ -24,7 +24,7 @@
                                 <i class="fa fa-square-o fa-stack-2x"></i>
                                 <i class="fa fa-wifi fa-stack-1x"></i>
                             </span>
-                            <span class="label label-default">{{ nas.nasName }}</span> | {{ nas.description }}
+                            <span class="label label-default">{{ nas.shortName }}</span> | {{ nas.description }}
                          </a>
                       </ul>
                  </div>

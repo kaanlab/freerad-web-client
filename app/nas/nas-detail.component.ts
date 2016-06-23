@@ -64,6 +64,6 @@ export class NasDetailComponent implements OnInit {
     }
 
     private getMessage(): string {
-        return 'Пользователь ' + this.nas.nasName + ' удален!';
+        return 'Устройство ' + this.nas.shortName + ' удалено!';
     }    
 }

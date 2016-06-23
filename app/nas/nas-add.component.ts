@@ -71,6 +71,6 @@ export class NasAddComponent implements OnInit {
     }
 
     private getMessage(): string {
-        return 'Пользователь ' + this.nas.nasName + ' сохранен!';
+        return 'Устройство ' + this.nas.shortName + ' успешно создано!';
     }
 }

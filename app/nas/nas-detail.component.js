@@ -53,7 +53,7 @@ var NasDetailComponent = (function () {
         this.router.navigate(['NasesList']);
     };
     NasDetailComponent.prototype.getMessage = function () {
-        return 'Пользователь ' + this.nas.nasName + ' удален!';
+        return 'Устройство ' + this.nas.shortName + ' удалено!';
     };
     NasDetailComponent = __decorate([
         core_1.Component({

@@ -38,13 +38,13 @@
                       <div class="form-group">
                           <label for="value" class="col-sm-2 control-label">Значение</label>
                           <div class="col-sm-10">
-                              <input id="value" class="form-control" formControl="value" [(ngModel)]="group.value" #value="ngForm" required minlength="1" maxlength="253" placeholder="1">
+                              <input id="value" class="form-control" formControl="value" [(ngModel)]="group.value" #value="ngForm" required maxlength="253" placeholder="1">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="description" class="col-sm-2 control-label">Описание</label>
                           <div class="col-sm-10">
-                              <textarea rows="2" id="description" class="form-control" formControl="description" [(ngModel)]="group.description" #description="ngForm" maxlength="253" placeholder="Jon Doe from nowhere"></textarea>
+                              <textarea rows="2" id="description" class="form-control" formControl="description" [(ngModel)]="group.description" #description="ngForm" required maxlength="253" placeholder="Jon Doe from nowhere"></textarea>
                           </div>
                       </div>  
                       <div class="form-group">
