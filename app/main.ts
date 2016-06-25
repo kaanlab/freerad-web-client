@@ -2,6 +2,7 @@ import { bootstrap }    from '@angular/platform-browser-dynamic';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { Title } from '@angular/platform-browser';
+//import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 import 'rxjs/Rx';
 import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';

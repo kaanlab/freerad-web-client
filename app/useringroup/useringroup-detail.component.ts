@@ -5,7 +5,7 @@ import { NgForm, NgClass } from '@angular/common';
 import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
 
 import { UserInGroup } from './useringroup';
-import { UserInGroupService } from './userInGroup.service';
+import { UserInGroupService } from './useringroup.service';
 
 @Component({
     selector: 'useringroup-detail',

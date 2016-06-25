@@ -9,7 +9,8 @@ import { Nas } from './nas';
 export class NasService {
     
     private apiUrl:string = 'http://localhost:51164/api/nases';
-    
+    //private apiUrl:string = 'http://web.adm.gov-rk.ru/freeradius/api/nases';
+
     constructor(private http: Http){ }
         
     // Get all authors

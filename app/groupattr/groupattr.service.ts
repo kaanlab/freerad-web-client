@@ -9,6 +9,7 @@ import { GroupAttr } from './groupattr';
 export class GroupAttrService {
     
     private apiUrl:string = 'http://localhost:51164/api/groupattributes';
+    //private apiUrl:string = 'http://web.adm.gov-rk.ru/freeradius/api/groupattributes';
     
     constructor(private http: Http){ }
         

@@ -3,6 +3,7 @@ var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
 var http_1 = require('@angular/http');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var platform_browser_1 = require('@angular/platform-browser');
+//import { disableDeprecatedForms, provideForms } from '@angular/forms';
 require('rxjs/Rx');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var app_component_1 = require('./app.component');

@@ -9,6 +9,7 @@ import { UserAttr } from './userattr';
 export class UserAttrService {
     
     private apiUrl:string = 'http://localhost:51164/api/userattributes';
+    //private apiUrl:string = 'http://web.adm.gov-rk.ru/freeradius/api/userattributes';
     
     constructor(private http: Http){ }
         

@@ -9,6 +9,7 @@ import { Group } from './group';
 export class GroupService {
     
     private apiUrl:string = 'http://localhost:51164/api/groups';
+    //private apiUrl:string = 'http://web.adm.gov-rk.ru/freeradius/api/groups';
     
     constructor(private http: Http){ }
         

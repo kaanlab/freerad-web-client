@@ -9,6 +9,7 @@ import { User } from './user';
 export class UserService {
     
     private apiUrl:string = 'http://localhost:51164/api/users';
+    //private apiUrl:string = 'http://web.adm.gov-rk.ru/freeradius/api/users';
     
     constructor(private http: Http){ }
         

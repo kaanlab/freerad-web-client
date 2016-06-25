@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 var NasService = (function () {
+    //private apiUrl:string = 'http://web.adm.gov-rk.ru/freeradius/api/nases';
     function NasService(http) {
         this.http = http;
         this.apiUrl = 'http://localhost:51164/api/nases';

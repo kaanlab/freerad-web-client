@@ -13,7 +13,7 @@ var router_deprecated_1 = require('@angular/router-deprecated');
 var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var useringroup_1 = require('./useringroup');
-var userInGroup_service_1 = require('./userInGroup.service');
+var useringroup_service_1 = require('./useringroup.service');
 var UserInGroupDetailComponent = (function () {
     function UserInGroupDetailComponent(userInGroupService, routeParams, toastyService, router) {
         this.userInGroupService = userInGroupService;
@@ -64,9 +64,9 @@ var UserInGroupDetailComponent = (function () {
                 common_1.NgClass,
                 ng2_toasty_1.Toasty
             ],
-            providers: [userInGroup_service_1.UserInGroupService]
+            providers: [useringroup_service_1.UserInGroupService]
         }), 
-        __metadata('design:paramtypes', [userInGroup_service_1.UserInGroupService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [useringroup_service_1.UserInGroupService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
     ], UserInGroupDetailComponent);
     return UserInGroupDetailComponent;
 }());
