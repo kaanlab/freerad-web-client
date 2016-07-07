@@ -19,49 +19,49 @@
                       <div class="form-group">
                           <label for="nasName" class="col-sm-2 control-label">Название</label>
                           <div class="col-sm-10">
-                              <input id="nasName" class="form-control" formControl="nasName" [(ngModel)]="nas.nasName" #nasName="ngForm" required minlength="9" maxlength="128" placeholder="192.168.123.4">             
+                              <input class="form-control" [(ngModel)]="nas.nasName" name="nasName" required minlength="9" maxlength="128" placeholder="192.168.123.4">             
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="shortName" class="col-sm-2 control-label">Сокр.</label>
                           <div class="col-sm-10">
-                              <input id="shortName" class="form-control" formControl="shortName" [(ngModel)]="nas.shortName" #shortName="ngForm" required minlength="3" maxlength="32" placeholder="AP01">
+                              <input class="form-control" [(ngModel)]="nas.shortName" name="shortName" required minlength="3" maxlength="32" placeholder="AP01">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="type" class="col-sm-2 control-label">Тип</label>
                           <div class="col-sm-10">
-                              <input id="type" class="form-control" formControl="type" [(ngModel)]="nas.type" #type="ngForm" maxlength="30" placeholder="others">
+                              <input class="form-control" [(ngModel)]="nas.type" name="type" minlength="1" maxlength="30" placeholder="other">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="ports" class="col-sm-2 control-label">Порты</label>
                           <div class="col-sm-10">
-                              <input id="ports" class="form-control" formControl="ports" [(ngModel)]="nas.ports" #ports="ngForm" maxlength="253" placeholder="1024">
+                              <input class="form-control" [(ngModel)]="nas.ports" name="ports" maxlength="253" placeholder="1024">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="secret" class="col-sm-2 control-label">Секрет</label>
                           <div class="col-sm-10">
-                              <input id="secret" class="form-control" formControl="secret" [(ngModel)]="nas.secret" #secret="ngForm" required minlength="5" maxlength="60" placeholder="mysecret">
+                              <input class="form-control" [(ngModel)]="nas.secret" name="secret" required minlength="5" maxlength="60" placeholder="mysecret">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="server" class="col-sm-2 control-label">Сервер</label>
                           <div class="col-sm-10">
-                              <input id="server" class="form-control" formControl="server" [(ngModel)]="nas.server" #server="ngForm" maxlength="64" placeholder="">
+                              <input class="form-control" [(ngModel)]="nas.server" name="server" maxlength="64" placeholder="">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="community" class="col-sm-2 control-label">Строка</label>
                           <div class="col-sm-10">
-                              <input id="community" class="form-control" formControl="community" [(ngModel)]="nas.community" #community="ngForm" maxlength="253" placeholder="public">
+                              <input class="form-control" [(ngModel)]="nas.community" name="community" maxlength="253" placeholder="public">
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="description" class="col-sm-2 control-label">Описание</label>
                           <div class="col-sm-10">
-                              <textarea rows="2" id="description" class="form-control" formControl="description" [(ngModel)]="nas.description" #description="ngForm" required maxlength="200" placeholder="Radius client"></textarea>
+                              <textarea rows="2" class="form-control" [(ngModel)]="nas.description" name="description" required maxlength="200" placeholder="New radius client"></textarea>
                           </div>
                       </div>
                       <div class="form-group">

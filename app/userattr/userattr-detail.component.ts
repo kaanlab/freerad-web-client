@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteParams, Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm, NgClass } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
 
@@ -12,7 +12,6 @@ import { UserAttrService } from './userattr.service';
     templateUrl: 'app/userattr/userattr-detail.component.html',    
     directives: [ 
         ROUTER_DIRECTIVES,
-        NgClass,
         Toasty
     ],
     providers: [ UserAttrService ]  
@@ -33,7 +32,9 @@ export class UserAttrDetailComponent implements OnInit {
 
     ngOnInit() {
         let id = +this.routeParams.get('id');
-        this.userAttrService.getUserAttr(id).then(userAttr => this.userAttr = userAttr);        
+        this.userAttrService.getUserAttr(id)
+                            .then(userAttr => this.userAttr = userAttr)
+                            .catch(error => this.errorMessage = error);        
     }
 
     onDelete() {

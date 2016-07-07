@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var userattr_1 = require('./userattr');
 var userattr_service_1 = require('./userattr.service');
@@ -26,7 +25,9 @@ var UserAttrDetailComponent = (function () {
     UserAttrDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         var id = +this.routeParams.get('id');
-        this.userAttrService.getUserAttr(id).then(function (userAttr) { return _this.userAttr = userAttr; });
+        this.userAttrService.getUserAttr(id)
+            .then(function (userAttr) { return _this.userAttr = userAttr; })
+            .catch(function (error) { return _this.errorMessage = error; });
     };
     UserAttrDetailComponent.prototype.onDelete = function () {
         var _this = this;
@@ -61,7 +62,6 @@ var UserAttrDetailComponent = (function () {
             templateUrl: 'app/userattr/userattr-detail.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
-                common_1.NgClass,
                 ng2_toasty_1.Toasty
             ],
             providers: [userattr_service_1.UserAttrService]

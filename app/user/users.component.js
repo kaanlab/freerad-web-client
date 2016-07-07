@@ -47,7 +47,7 @@ var UsersComponent = (function () {
             { path: '/group/...', name: 'UsersInGroup', component: usersingroup_component_1.UsersInGroupComponent },
             { path: '/group/:id', name: 'UserInGroupDetail', component: useringroup_detail_component_1.UserInGroupDetailComponent },
             { path: '/group/add', name: 'UserInGroupAdd', component: useringroup_add_component_1.UserInGroupAddComponent },
-            { path: '/group/edit/:id', name: 'UseInGroupEdit', component: useringroup_edit_component_1.UserInGroupEditComponent }
+            { path: '/group/edit/:id', name: 'UserInGroupEdit', component: useringroup_edit_component_1.UserInGroupEditComponent }
         ]), 
         __metadata('design:paramtypes', [])
     ], UsersComponent);

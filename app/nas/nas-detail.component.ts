@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteParams, Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm, NgClass } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 import {ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData} from 'ng2-toasty/ng2-toasty';
 
@@ -12,7 +12,6 @@ import { NasService } from './nas.service';
     templateUrl: 'app/nas/nas-detail.component.html',    
     directives: [ 
         ROUTER_DIRECTIVES,
-        NgClass,
         Toasty
     ],
     providers: [ NasService ]  

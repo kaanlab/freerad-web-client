@@ -23,7 +23,7 @@ import { UserInGroupEditComponent } from './useringroup-edit.component';
     { path: '/', name: 'UsersInGroupList', component: UsersInGroupListComponent, useAsDefault: true },
     { path: '/:id', name: 'UserInGroupDetail', component: UserInGroupDetailComponent },
     { path: '/add', name: 'UserInGroupAdd', component: UserInGroupAddComponent },
-    { path: '/edit/:id', name: 'UserInGroupEdit', component: UserInGroupEditComponent}    
+    { path: '/edit/:id', name: 'UserInGroupEdit', component: UserInGroupEditComponent }    
 ])
 
 export class UsersInGroupComponent {

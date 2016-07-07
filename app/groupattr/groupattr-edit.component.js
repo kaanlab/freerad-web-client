@@ -10,13 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var groupattr_1 = require('./groupattr');
 var groupattr_service_1 = require('./groupattr.service');
+var group_service_1 = require('../group/group.service');
 var GroupAttrEditComponent = (function () {
-    function GroupAttrEditComponent(groupAttrService, router, routeParams, toastyService) {
+    function GroupAttrEditComponent(groupAttrService, groupService, router, routeParams, toastyService) {
         this.groupAttrService = groupAttrService;
+        this.groupService = groupService;
         this.router = router;
         this.routeParams = routeParams;
         this.toastyService = toastyService;
@@ -28,7 +29,12 @@ var GroupAttrEditComponent = (function () {
     GroupAttrEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         var id = +this.routeParams.get('id');
-        this.groupAttrService.getGroupAttr(id).then(function (groupAttr) { return _this.groupAttr = groupAttr; });
+        this.groupAttrService.getGroupAttr(id)
+            .then(function (groupAttr) { return _this.groupAttr = groupAttr; })
+            .catch(function (error) { return _this.errorMessage = error; });
+        this.groupService.getGroups()
+            .then(function (groups) { return _this.groups = groups; })
+            .catch(function (error) { return _this.errorMessage = error; });
     };
     GroupAttrEditComponent.prototype.onSubmit = function () {
         this.submitted = true;
@@ -61,18 +67,24 @@ var GroupAttrEditComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', groupattr_1.GroupAttr)
     ], GroupAttrEditComponent.prototype, "groupAttr", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], GroupAttrEditComponent.prototype, "groups", void 0);
     GroupAttrEditComponent = __decorate([
         core_1.Component({
             selector: 'groupattr-edit',
             templateUrl: 'app/groupattr/groupattr-edit.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
-                common_1.NgClass,
                 ng2_toasty_1.Toasty
             ],
-            providers: [groupattr_service_1.GroupAttrService]
+            providers: [
+                groupattr_service_1.GroupAttrService,
+                group_service_1.GroupService
+            ]
         }), 
-        __metadata('design:paramtypes', [groupattr_service_1.GroupAttrService, router_deprecated_1.Router, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService])
+        __metadata('design:paramtypes', [groupattr_service_1.GroupAttrService, group_service_1.GroupService, router_deprecated_1.Router, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService])
     ], GroupAttrEditComponent);
     return GroupAttrEditComponent;
 }());

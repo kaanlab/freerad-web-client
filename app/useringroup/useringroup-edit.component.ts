@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { Router, RouteParams, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm, NgClass } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
@@ -15,7 +15,6 @@ import { GroupService } from '../group/group.service';
     templateUrl: 'app/useringroup/useringroup-edit.component.html',
     directives: [
         ROUTER_DIRECTIVES,
-        NgClass,
         Toasty        
     ],
     providers: [ 
@@ -30,7 +29,7 @@ export class UserInGroupEditComponent implements OnInit {
     private submitted:boolean = false;
     
     @Input() userInGroup: UserInGroup = new UserInGroup();
-    groups: Group[];
+    @Input() groups: Group[];
     errorMessage: any;
     active:boolean = true;   
 

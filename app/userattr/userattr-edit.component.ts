@@ -1,21 +1,25 @@
 import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { Router, RouteParams, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm, NgClass } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
 import { UserAttr } from './userattr';
 import { UserAttrService } from './userattr.service';
+import { User } from '../user/user';
+import { UserService } from '../user/user.service';
 
 @Component({
     selector: 'userattr-edit',
     templateUrl: 'app/userattr/userattr-edit.component.html',
     directives: [
-        ROUTER_DIRECTIVES,
-        NgClass,
+        ROUTER_DIRECTIVES,        
         Toasty        
     ],
-    providers: [ UserAttrService ]   
+    providers: [ 
+        UserAttrService,
+        UserService
+    ]   
 })
 
 export class UserAttrEditComponent implements OnInit {
@@ -24,11 +28,13 @@ export class UserAttrEditComponent implements OnInit {
     private submitted:boolean = false;
     
     @Input() userAttr: UserAttr = new UserAttr();
+    @Input() users: User[];
     errorMessage: any;
     active:boolean = true;   
 
     constructor(        
         private userAttrService: UserAttrService,
+        private userService: UserService,
         private router: Router,
         private routeParams: RouteParams,
         private toastyService: ToastyService
@@ -36,7 +42,12 @@ export class UserAttrEditComponent implements OnInit {
     
     ngOnInit() {
         let id = +this.routeParams.get('id');
-        this.userAttrService.getUserAttr(id).then(userAttr => this.userAttr = userAttr);          
+        this.userAttrService.getUserAttr(id)
+                            .then(userAttr => this.userAttr = userAttr)
+                            .catch(error => this.errorMessage = error);;
+        this.userService.getUsers()
+                        .then(users => this.users = users)            
+                        .catch(error => this.errorMessage = error);          
     }
     
     onSubmit(){        

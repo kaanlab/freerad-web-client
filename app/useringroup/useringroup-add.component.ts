@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm, NgClass } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
@@ -16,7 +16,6 @@ import { GroupService } from '../group/group.service';
     templateUrl: 'app/useringroup/useringroup-add.component.html',
     directives: [
         ROUTER_DIRECTIVES,
-        NgClass,
         Toasty        
     ],
     providers: [ 

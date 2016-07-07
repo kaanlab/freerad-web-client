@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm, NgClass } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
 
@@ -11,8 +11,7 @@ import { UserService } from './user.service';
     selector: 'user-add',
     templateUrl: 'app/user/user-add.component.html',
     directives: [
-        ROUTER_DIRECTIVES,
-        NgClass,
+        ROUTER_DIRECTIVES,    
         Toasty        
     ],
     providers: [ UserService ]   

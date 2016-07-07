@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var useringroup_1 = require('./useringroup');
 var useringroup_service_1 = require('./useringroup.service');
@@ -67,13 +66,16 @@ var UserInGroupEditComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', useringroup_1.UserInGroup)
     ], UserInGroupEditComponent.prototype, "userInGroup", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], UserInGroupEditComponent.prototype, "groups", void 0);
     UserInGroupEditComponent = __decorate([
         core_1.Component({
             selector: 'useringroup-edit',
             templateUrl: 'app/useringroup/useringroup-edit.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
-                common_1.NgClass,
                 ng2_toasty_1.Toasty
             ],
             providers: [

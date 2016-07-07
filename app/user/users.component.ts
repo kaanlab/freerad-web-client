@@ -44,7 +44,7 @@ import { UserInGroupEditComponent } from '../useringroup/useringroup-edit.compon
     { path: '/group/...', name: 'UsersInGroup', component: UsersInGroupComponent },
     { path: '/group/:id', name: 'UserInGroupDetail', component: UserInGroupDetailComponent },
     { path: '/group/add', name: 'UserInGroupAdd', component: UserInGroupAddComponent },
-    { path: '/group/edit/:id', name: 'UseInGroupEdit', component: UserInGroupEditComponent}  
+    { path: '/group/edit/:id', name: 'UserInGroupEdit', component: UserInGroupEditComponent}  
 ])
 
 export class UsersComponent {

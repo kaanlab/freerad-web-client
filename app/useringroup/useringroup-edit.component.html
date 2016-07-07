@@ -20,21 +20,21 @@
                       <div class="form-group">
                           <label for="userName" class="col-sm-2 control-label">Пользователь</label>
                           <div class="col-sm-10">
-                              <input id="userName" class="form-control" formControl="userName" [(ngModel)]="userInGroup.userName" #userName="ngForm" readonly>             
+                             <input class="form-control" placeholder="{{ userInGroup.userName }}" readonly>               
                           </div>
                       </div>
                       <div class="form-group">
                           <label for="userName" class="col-sm-2 control-label">Группа</label>
                           <div class="col-sm-10">
-                              <select id="groupName" class="form-control" formControl="groupName" [(ngModel)]="userInGroup.groupName" #groupName="ngForm" required minlength="3" maxlength="64" placeholder="Выберете группу...">
+                              <select class="form-control" [(ngModel)]="userInGroup.groupName" name="groupName" required placeholder="Выберете группу...">
                                 <option *ngFor="let group of groups" [value]="group.groupName">{{ group.groupName }}</option>
                               </select>             
                           </div>
                       </div>
                       <div class="form-group">
-                          <label for="op" class="col-sm-2 control-label">Приоритет</label>
+                          <label for="attribute" class="col-sm-2 control-label">Приоритет</label>
                           <div class="col-sm-10">
-                              <input id="op" class="form-control" formControl="op" [(ngModel)]="userInGroup.priority" #op="ngForm" required minlength="1" maxlength="2" placeholder=":=">
+                              <input class="form-control" [(ngModel)]="userInGroup.priority" name="priority" required placeholder="1">
                           </div>
                       </div>                    
                       <div class="form-group">

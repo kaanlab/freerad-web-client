@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var common_1 = require('@angular/common');
 var ng2_toasty_1 = require('ng2-toasty/ng2-toasty');
 var group_1 = require('./group');
 var group_service_1 = require('./group.service');
@@ -65,7 +64,6 @@ var GroupAddComponent = (function () {
             templateUrl: 'app/group/group-add.component.html',
             directives: [
                 router_deprecated_1.ROUTER_DIRECTIVES,
-                common_1.NgClass,
                 ng2_toasty_1.Toasty
             ],
             providers: [group_service_1.GroupService]
