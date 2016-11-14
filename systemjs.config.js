@@ -25,7 +25,7 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
-      'ng2-toasty':                 'node_modules/ng2-toasty'
+      'ng2-toasty':                'node_modules/ng2-toasty'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -37,6 +37,7 @@
         defaultExtension: 'js'
       },
       'ng2-toasty': {
+         main: './main.js',
          defaultExtension: 'js'
       }
     }

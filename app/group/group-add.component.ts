@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { NgForm } from '@angular/forms';
 
-//import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
+import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty';
 
 import { Group } from './group';
 import { GroupService } from './group.service';

@@ -9,11 +9,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 //import { NasesComponent }     from './nas/nases.component';
 import { AppRoutingModule }   from './app-routing.module';
 
+import { ToastyModule }       from 'ng2-toasty';
+
 @NgModule({
   imports:      [ 
       BrowserModule,
       Title,
       FormsModule,
+      ToastyModule.forRoot(),
       AppRoutingModule
   ],
   declarations: [ 
