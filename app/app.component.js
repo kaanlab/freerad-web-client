@@ -9,40 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
-var platform_browser_1 = require('@angular/platform-browser');
-var dashboard_component_1 = require('./dashboard/dashboard.component');
-var users_component_1 = require('./user/users.component');
-var groups_component_1 = require('./group/groups.component');
-var nases_component_1 = require('./nas/nases.component');
+//import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angular/router-deprecated';
+//import { Title } from '@angular/platform-browser';
+//import { DashboardComponent } from './dashboard/dashboard.component';
+//import { UsersComponent } from './user/users.component';
+//import { GroupsComponent } from './group/groups.component';
+//import { NasesComponent } from './nas/nases.component';
 var AppComponent = (function () {
-    function AppComponent(router, title) {
-        this.router = router;
-        this.title = title;
+    function AppComponent() {
     }
-    AppComponent.prototype.isCurrentRoute = function (route) {
-        var instruction = this.router.generate(route);
-        return this.router.isRouteActive(instruction);
-    };
-    AppComponent.prototype.setTitle = function (newTitle) {
-        this.title.setTitle(newTitle);
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html',
-            directives: [
-                router_deprecated_1.ROUTER_DIRECTIVES
-            ],
-            providers: [router_deprecated_1.ROUTER_PROVIDERS]
-        }),
-        router_deprecated_1.RouteConfig([
-            { path: '/dashborard', name: 'Dashboard', component: dashboard_component_1.DashboardComponent, useAsDefault: true },
-            { path: '/user/...', name: 'Users', component: users_component_1.UsersComponent },
-            { path: '/group/...', name: 'Groups', component: groups_component_1.GroupsComponent },
-            { path: '/nas/...', name: 'Nases', component: nases_component_1.NasesComponent }
-        ]), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, platform_browser_1.Title])
+        }), 
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());

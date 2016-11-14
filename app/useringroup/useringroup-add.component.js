@@ -83,9 +83,10 @@ var UserInGroupAddComponent = (function () {
                 group_service_1.GroupService
             ]
         }), 
-        __metadata('design:paramtypes', [useringroup_service_1.UserInGroupService, user_service_1.UserService, group_service_1.GroupService, router_deprecated_1.Router, ng2_toasty_1.ToastyService])
+        __metadata('design:paramtypes', [useringroup_service_1.UserInGroupService, user_service_1.UserService, group_service_1.GroupService, (typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, (typeof (_b = typeof ng2_toasty_1.ToastyService !== 'undefined' && ng2_toasty_1.ToastyService) === 'function' && _b) || Object])
     ], UserInGroupAddComponent);
     return UserInGroupAddComponent;
+    var _a, _b;
 }());
 exports.UserInGroupAddComponent = UserInGroupAddComponent;
 //# sourceMappingURL=useringroup-add.component.js.map

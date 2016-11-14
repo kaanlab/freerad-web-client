@@ -68,9 +68,10 @@ var UserAddComponent = (function () {
             ],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router, ng2_toasty_1.ToastyService])
+        __metadata('design:paramtypes', [user_service_1.UserService, (typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, (typeof (_b = typeof ng2_toasty_1.ToastyService !== 'undefined' && ng2_toasty_1.ToastyService) === 'function' && _b) || Object])
     ], UserAddComponent);
     return UserAddComponent;
+    var _a, _b;
 }());
 exports.UserAddComponent = UserAddComponent;
 //# sourceMappingURL=user-add.component.js.map

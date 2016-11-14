@@ -37,9 +37,10 @@ var GroupsAttrListComponent = (function () {
             directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [groupattr_service_1.GroupAttrService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, groupattr_service_1.GroupAttrService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, groupattr_service_1.GroupAttrService])
     ], GroupsAttrListComponent);
     return GroupsAttrListComponent;
+    var _a;
 }());
 exports.GroupsAttrListComponent = GroupsAttrListComponent;
 //# sourceMappingURL=groupsattr-list.component.js.map

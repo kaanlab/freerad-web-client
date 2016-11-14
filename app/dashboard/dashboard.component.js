@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+//import { ROUTER_DIRECTIVES, RouteConfig, Router } from  '@angular/router-deprecated';
 var DashboardComponent = (function () {
     function DashboardComponent() {
     }
@@ -18,8 +18,7 @@ var DashboardComponent = (function () {
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'dashboard',
-            templateUrl: 'app/dashboard/dashboard.component.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES]
+            templateUrl: 'app/dashboard/dashboard.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], DashboardComponent);

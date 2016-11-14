@@ -76,9 +76,10 @@ var NasEditComponent = (function () {
             ],
             providers: [nas_service_1.NasService]
         }), 
-        __metadata('design:paramtypes', [nas_service_1.NasService, router_deprecated_1.Router, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService])
+        __metadata('design:paramtypes', [nas_service_1.NasService, (typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, (typeof (_b = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _b) || Object, (typeof (_c = typeof ng2_toasty_1.ToastyService !== 'undefined' && ng2_toasty_1.ToastyService) === 'function' && _c) || Object])
     ], NasEditComponent);
     return NasEditComponent;
+    var _a, _b, _c;
 }());
 exports.NasEditComponent = NasEditComponent;
 //# sourceMappingURL=nas-edit.component.js.map

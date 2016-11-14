@@ -37,9 +37,10 @@ var NasesListComponent = (function () {
             directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [nas_service_1.NasService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, nas_service_1.NasService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, nas_service_1.NasService])
     ], NasesListComponent);
     return NasesListComponent;
+    var _a;
 }());
 exports.NasesListComponent = NasesListComponent;
 //# sourceMappingURL=nases-list.component.js.map

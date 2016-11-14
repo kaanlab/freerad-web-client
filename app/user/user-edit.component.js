@@ -76,9 +76,10 @@ var UserEditComponent = (function () {
             ],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService])
+        __metadata('design:paramtypes', [user_service_1.UserService, (typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, (typeof (_b = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _b) || Object, (typeof (_c = typeof ng2_toasty_1.ToastyService !== 'undefined' && ng2_toasty_1.ToastyService) === 'function' && _c) || Object])
     ], UserEditComponent);
     return UserEditComponent;
+    var _a, _b, _c;
 }());
 exports.UserEditComponent = UserEditComponent;
 //# sourceMappingURL=user-edit.component.js.map

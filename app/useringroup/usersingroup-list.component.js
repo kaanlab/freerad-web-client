@@ -37,9 +37,10 @@ var UsersInGroupListComponent = (function () {
             directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [useringroup_service_1.UserInGroupService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, useringroup_service_1.UserInGroupService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, useringroup_service_1.UserInGroupService])
     ], UsersInGroupListComponent);
     return UsersInGroupListComponent;
+    var _a;
 }());
 exports.UsersInGroupListComponent = UsersInGroupListComponent;
 //# sourceMappingURL=usersingroup-list.component.js.map

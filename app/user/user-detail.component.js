@@ -64,9 +64,10 @@ var UserDetailComponent = (function () {
             ],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [user_service_1.UserService, (typeof (_a = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _a) || Object, (typeof (_b = typeof ng2_toasty_1.ToastyService !== 'undefined' && ng2_toasty_1.ToastyService) === 'function' && _b) || Object, (typeof (_c = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _c) || Object])
     ], UserDetailComponent);
     return UserDetailComponent;
+    var _a, _b, _c;
 }());
 exports.UserDetailComponent = UserDetailComponent;
 //# sourceMappingURL=user-detail.component.js.map

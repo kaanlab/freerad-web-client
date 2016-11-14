@@ -66,9 +66,10 @@ var UserAttrDetailComponent = (function () {
             ],
             providers: [userattr_service_1.UserAttrService]
         }), 
-        __metadata('design:paramtypes', [userattr_service_1.UserAttrService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [userattr_service_1.UserAttrService, (typeof (_a = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _a) || Object, (typeof (_b = typeof ng2_toasty_1.ToastyService !== 'undefined' && ng2_toasty_1.ToastyService) === 'function' && _b) || Object, (typeof (_c = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _c) || Object])
     ], UserAttrDetailComponent);
     return UserAttrDetailComponent;
+    var _a, _b, _c;
 }());
 exports.UserAttrDetailComponent = UserAttrDetailComponent;
 //# sourceMappingURL=userattr-detail.component.js.map

@@ -43,9 +43,10 @@ var UsersListComponent = (function () {
             ],
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, user_service_1.UserService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, user_service_1.UserService])
     ], UsersListComponent);
     return UsersListComponent;
+    var _a;
 }());
 exports.UsersListComponent = UsersListComponent;
 //# sourceMappingURL=users-list.component.js.map

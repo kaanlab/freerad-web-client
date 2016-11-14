@@ -77,9 +77,10 @@ var GroupAttrAddComponent = (function () {
                 group_service_1.GroupService
             ]
         }), 
-        __metadata('design:paramtypes', [groupattr_service_1.GroupAttrService, group_service_1.GroupService, router_deprecated_1.Router, ng2_toasty_1.ToastyService])
+        __metadata('design:paramtypes', [groupattr_service_1.GroupAttrService, group_service_1.GroupService, (typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, (typeof (_b = typeof ng2_toasty_1.ToastyService !== 'undefined' && ng2_toasty_1.ToastyService) === 'function' && _b) || Object])
     ], GroupAttrAddComponent);
     return GroupAttrAddComponent;
+    var _a, _b;
 }());
 exports.GroupAttrAddComponent = GroupAttrAddComponent;
 //# sourceMappingURL=groupattr-add.component.js.map

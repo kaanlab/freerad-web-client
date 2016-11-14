@@ -37,9 +37,10 @@ var UsersAttrListComponent = (function () {
             directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [userattr_service_1.UserAttrService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, userattr_service_1.UserAttrService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, userattr_service_1.UserAttrService])
     ], UsersAttrListComponent);
     return UsersAttrListComponent;
+    var _a;
 }());
 exports.UsersAttrListComponent = UsersAttrListComponent;
 //# sourceMappingURL=usersattr-list.component.js.map

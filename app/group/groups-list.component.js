@@ -41,9 +41,10 @@ var GroupsListComponent = (function () {
             ],
             providers: [group_service_1.GroupService]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.Router, group_service_1.GroupService])
+        __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object, group_service_1.GroupService])
     ], GroupsListComponent);
     return GroupsListComponent;
+    var _a;
 }());
 exports.GroupsListComponent = GroupsListComponent;
 //# sourceMappingURL=groups-list.component.js.map

@@ -64,9 +64,10 @@ var GroupAttrDetailComponent = (function () {
             ],
             providers: [groupattr_service_1.GroupAttrService]
         }), 
-        __metadata('design:paramtypes', [groupattr_service_1.GroupAttrService, router_deprecated_1.RouteParams, ng2_toasty_1.ToastyService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [groupattr_service_1.GroupAttrService, (typeof (_a = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _a) || Object, (typeof (_b = typeof ng2_toasty_1.ToastyService !== 'undefined' && ng2_toasty_1.ToastyService) === 'function' && _b) || Object, (typeof (_c = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _c) || Object])
     ], GroupAttrDetailComponent);
     return GroupAttrDetailComponent;
+    var _a, _b, _c;
 }());
 exports.GroupAttrDetailComponent = GroupAttrDetailComponent;
 //# sourceMappingURL=groupattr-detail.component.js.map
