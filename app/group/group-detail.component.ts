@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteParams, Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute, Params }            from '@angular/router';
+import { NgForm }            from '@angular/forms';
 
-import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
+import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty';
 
-import { Group } from './group';
+import { Group }        from './group';
 import { GroupService } from './group.service';
 
 @Component({
     selector: 'group-detail',
     templateUrl: 'app/group/group-detail.component.html',    
-    directives: [ 
-        ROUTER_DIRECTIVES,
-        Toasty
-    ],
-    providers: [ GroupService ]  
+//    directives: [ 
+//        ROUTER_DIRECTIVES,
+//        Toasty
+//    ],
+//    providers: [ GroupService ]  
 })
 
 export class GroupDetailComponent implements OnInit {
@@ -25,13 +25,14 @@ export class GroupDetailComponent implements OnInit {
     errorMessage: any
 
     constructor(
-        private groupService: GroupService,
-        private routeParams: RouteParams,
+        private groupService: GroupService,        
         private toastyService: ToastyService,
-        private router: Router) { }
+        private router: Router,
+        private route: ActivatedRoute
+    ) { }
 
     ngOnInit() {
-        let id = +this.routeParams.get('id');
+        let id = +this.route.params['id'];
         this.groupService.getGroup(id).then(group => this.group = group);        
     }
 
@@ -54,12 +55,12 @@ export class GroupDetailComponent implements OnInit {
     }
 
     onEdit(){
-        let id = +this.routeParams.get('id');
+        let id = +this.route.params['id'];
         this.router.navigate(['GroupEdit', { id: id}]);
     }
 
     private navigateBack(){
-        this.router.navigate(['GroupsList']);
+        this.router.navigate(['/groupslist']);
     }
 
     private getMessage(): string {

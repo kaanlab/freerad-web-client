@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Input } from '@angular/core';
-import { Router, RouteParams, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { ToastyService, ToastyConfig, Toasty, ToastOptions, ToastData } from 'ng2-toasty/ng2-toasty';
+import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty';
 
 import { Group } from './group';
 import { GroupService } from './group.service';
@@ -10,11 +10,11 @@ import { GroupService } from './group.service';
 @Component({
     selector: 'group-edit',
     templateUrl: 'app/group/group-edit.component.html',
-    directives: [
-        ROUTER_DIRECTIVES,
-        Toasty        
-    ],
-    providers: [ GroupService ]   
+//    directives: [
+//        ROUTER_DIRECTIVES,
+//        Toasty        
+//    ],
+//    providers: [ GroupService ]   
 })
 
 export class GroupEditComponent implements OnInit {
@@ -24,18 +24,18 @@ export class GroupEditComponent implements OnInit {
     
     @Input() group: Group = new Group();
     errorMessage: any;
-    active:boolean = true;   
+    active: boolean = true;   
 
     constructor(        
         private groupService: GroupService,
         private router: Router,
-        private routeParams: RouteParams,
+        private route: ActivatedRoute,        
         private toastyService: ToastyService
         ) { }
     
     ngOnInit() {
-        let id = +this.routeParams.get('id');
-        this.groupService.getGroup(id).then(group => this.group = group);          
+        let id = +this.route.snapshot.params['id'];
+        this.groupService.getGroup(id).then((group: Group) => this.group = group);          
     }
     
     onSubmit(){        
@@ -60,7 +60,7 @@ export class GroupEditComponent implements OnInit {
     clearForm(){        
         this.group = new Group();
         this.active = false;
-        setTimeout(()=> this.active=true, 0);
+        setTimeout(()=> this.active = true, 0);
     }
 
     goBack(){
@@ -68,7 +68,7 @@ export class GroupEditComponent implements OnInit {
     }
 
     private navigateBack(){
-        this.router.navigate(['GroupsList']);
+        this.router.navigate(['/groupslist']);
     }
 
     private getMessage(): string {

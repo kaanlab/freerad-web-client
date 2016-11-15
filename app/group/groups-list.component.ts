@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 
 import { Group } from './group';
 import { GroupService } from './group.service';
@@ -8,11 +8,11 @@ import { GroupsAttrListComponent } from '../groupattr/groupsattr-list.component'
 @Component({
     selector: 'groups-list',
     templateUrl: 'app/group/groups-list.component.html',
-    directives: [
-        ROUTER_DIRECTIVES,
-        GroupsAttrListComponent
-    ],
-    providers: [GroupService]      
+//    directives: [
+//        ROUTER_DIRECTIVES,
+//        GroupsAttrListComponent
+//    ],
+//    providers: [GroupService]      
 })
 
 export class GroupsListComponent implements OnInit {
@@ -39,6 +39,6 @@ export class GroupsListComponent implements OnInit {
     }
 
     private navigateToNewGroup(){
-        this.router.navigate(['GroupAdd']);
+        this.router.navigate(['/groupadd']);
     }
 }

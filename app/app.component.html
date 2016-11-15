@@ -12,7 +12,7 @@
      <!-- /.navbar-header -->
      <ul class="nav navbar-top-links">
          <li>
-             <a (click)="setTitle('Главная :: FreeRadius Web Client')" href="" [routerLink]="['Dashboard']"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+             <a (click)="setTitle('Главная :: FreeRadius Web Client')" routerLink="/dashboard"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
          </li>
          <li class="pull-right">
              <a href="#"><i class="fa fa-user-secret fa-fw"></i></a>
@@ -34,13 +34,13 @@
                         <!-- /input-group -->
                      </li>
                      <li>
-                         <a (click)="setTitle('Пользователи :: FreeRadius Web Client')" href="" [routerLink]="['Users']"><i class="fa fa-user fa-fw"></i>Пользователи</a>
+                         <a (click)="setTitle('Пользователи :: FreeRadius Web Client')" routerLink="/users"><i class="fa fa-user fa-fw"></i>Пользователи</a>
                      </li>
                      <li>
-                         <a (click)="setTitle('Группы :: FreeRadius Web Client')"href="" [routerLink]="['Groups']"><i class="fa fa-group fa-fw"></i> Группы</a>
+                         <a (click)="setTitle('Группы :: FreeRadius Web Client')" routerLink="/groups"><i class="fa fa-group fa-fw"></i> Группы</a>
                      </li>
                      <li>
-                         <a (click)="setTitle('Устройства :: FreeRadius Web Client')"href="" [routerLink]="['Nases']"><i class="fa fa-wifi fa-fw"></i> Устройства</a>
+                         <a (click)="setTitle('Устройства :: FreeRadius Web Client')" routerLink="/nases"><i class="fa fa-wifi fa-fw"></i> Устройства</a>
                      </li>
                    </ul>
                </div>

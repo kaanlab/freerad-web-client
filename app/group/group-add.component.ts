@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-//import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { NgForm } from '@angular/forms';
+import { Router }            from '@angular/router';
+import { NgForm }            from '@angular/forms';
 
 import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty';
 
-import { Group } from './group';
+import { Group }        from './group';
 import { GroupService } from './group.service';
 
 @Component({
@@ -14,17 +14,17 @@ import { GroupService } from './group.service';
 //        ROUTER_DIRECTIVES,
 //        Toasty        
 //    ],
-    providers: [ GroupService ]   
+//    providers: [ GroupService ]   
 })
 
 export class GroupAddComponent implements OnInit {
     
-    private editMode:string = 'create';
-    private submitted:boolean = false;
+    private editMode: string = 'create';
+    private submitted: boolean = false;
     
     group: Group;
     errorMessage: any;
-    active:boolean = true;   
+    active: boolean = true;   
 
     constructor(        
         private groupService: GroupService,
@@ -58,7 +58,7 @@ export class GroupAddComponent implements OnInit {
     clearForm(){        
         this.group = new Group();
         this.active = false;
-        setTimeout(()=> this.active=true, 0);
+        setTimeout(()=> this.active = true, 0);
     }
 
     goBack(){
@@ -66,7 +66,7 @@ export class GroupAddComponent implements OnInit {
     }
 
     private navigateBack(){
-        this.router.navigate(['GroupsList']);
+        this.router.navigate(['/groupslist']);
     }
 
     private getMessage(): string {
